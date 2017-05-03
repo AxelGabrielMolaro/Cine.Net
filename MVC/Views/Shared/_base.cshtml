@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "_base";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="~/Css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Css/bootstrap-theme.css" rel="stylesheet" />
+
+    <link href="~/Css/estilos.css" rel="stylesheet" />
+    <script  type="text/javascript" src="~/Js/bootstrap.js"></script>   
+    <script type="text/javascript" src="~/Js/npm.js"></script>   
+
+    @RenderSection("librerias" , required : false);
+</head>
+<body>
+    <header>
+        <div class=" text-center header  text-uppercase tituloHeader ">
+               Cinematix
+
+        </div>
+    </header>
+   
+    @RenderSection("cabezeraAdmin", required: false);
+    @RenderBody()
+
+    @RenderSection("pie", required:false)
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "_AdministradorBase";
+    Layout = "~/Views/Shared/_base.cshtml";
+}
+
+<nav class="nav">
+        <div class="btn-group col-md-12" role="group">
+            <a href="#"> <input button type="button" class="btn btn-info col-md-2 " value="Gestión de Películas"/></a>
+            <a href="#"> <input button type="button" class="btn btn-info col-md-2 " value="Gestión de Carteleras"/></a>
+            <a href="#">  <input button type="button" class="btn btn-info col-md-2 " value="Gestión de Sedes"/></a>
+            <a href="#"> <input button type="button" class="btn btn-info col-md-2 " value="Reporte de Reservas"/></a>
+            <a href="/Home/inicio"> <input button type="button" class="btn btn-danger col-md-2 " value="Cerrar sesión" /></a>
+        </div>
+</nav>    
+
+@RenderBody()
