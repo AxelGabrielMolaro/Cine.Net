@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "reserva2";
+    Layout = "~/Views/Shared/_base.cshtml";
+}
+
+
+<div class="text-center"> <h2>Finalizar Reserva</h2> </div>
+<div class="col-md-5">
+    <table class="table">
+       
+            <tr class="">
+                <th class="info ">Nombre</th>
+                 <tr class="">
+                    <td class="col-md-12">Rocky 4</td>
+                </tr>
+            <tr>
+            <tr class="">
+                <th class="info ">Descripcion</th>
+            <tr class="">
+                <td class="col-md-12">aaaaaaaaaaaaaaaaaaaaaawa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa</td>
+            </tr>
+            <tr>
+            <tr class="">
+                <th class="info ">Clasificaion</th>
+            <tr class="">
+                <td class="col-md-12">5 estrellas</td>
+            </tr>
+            <tr>
+            <tr class="">
+                <th class="info ">Perecio de la entrada</th>
+            <tr class="">
+                <td class="col-md-12"> $ 20</td>
+            </tr>
+            <tr>
+            <tr class="">
+                <th class="success ">Version</th>
+            <tr class="">
+                <td class="col-md-12"> Español</td>
+            </tr>
+            <tr>
+            <tr class="">
+                <th class="success ">Sede</th>
+            <tr class="">
+                <td class="col-md-12"> San Justo Shopping</td>
+            </tr>
+            <tr>
+            <tr class="">
+            <th class="success ">Dia</th>
+            <tr class="">
+                <td class="col-md-12"> Viernes</td>
+            </tr>
+            <tr>
+            <tr class="">
+            <th class="success ">Horario</th>
+            <tr class="">
+                <td class="col-md-12"> 20:00 hs</td>
+            </tr>
+            <tr>
+
+        
+ </table>
+
+</div>
+<div class="col-md-offset-1 col-md-5">
+    <div class="text-center text"><h3>Finalizar Reserva</h3></div>
+    <form class="form">
+
+        <div class="form-group">
+            <label class="control-label">Nombre</label>
+            <div>
+                <input class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label ">Tipo de documento</label>
+           <div>
+               <div class="col-md-6">
+                   <select class="form-control ">
+                       <option>Dni</option>
+                       <option>Otro</option>
+                   </select>
+               </div>
+               <div class="col-md-6">
+                   <input class="form-control" />
+               </div>
+           </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Cantidad De Entradas</label>
+            <div>
+                <input type="number" class="form-control bfh-number">
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success col-md-12 " value="Reservar"/>
+        </div>
+        <div class="form-group  alert alert-warning  col-md-12">
+            <span class=""> Recuerda revisar que los datos sean los correctos antes de reservar</span>
+
+        </div>
+
+        <div class="form-group  alert alert-danger  col-md-12">
+           <span class="" > Error: Ingrese..</span>
+            
+        </div>
+
+    </form>
+    
+</div>
+
+

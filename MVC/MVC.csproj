@@ -126,6 +126,7 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\estilos.css" />
     <Content Include="Global.asax" />
+    <Content Include="Img\check_23024.png" />
     <Content Include="Img\CINE.jpg" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
@@ -143,6 +144,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,6 +171,8 @@
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\Shared\_AdministradorBase.cshtml" />
     <Content Include="Views\Administracion\inicio.cshtml" />
+    <Content Include="Views\Peliculas\reserva.cshtml" />
+    <Content Include="Views\Peliculas\reserva2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "reserva";
+    Layout = "~/Views/Shared/_base.cshtml";
+}
+
+
+<div class="col-md-offset-1 col-md-10 formularioReserva">
+    <div class="text-center ">
+        <h2>Reserva</h2>
+    </div>
+        <form action="/Peliculas/reserva2" method="post">
+            <div class="form-group col-md-2">
+                <h3>Version</h3>
+               <div class="col-md-12">
+                   <div class="checkbox col-md-6" > <label><input type="checkbox" value="" />Español</label></div>
+                   <div class="checkbox col-md-6"> <label><input type="checkbox" value="" />Subtitulada</label></div>
+               </div>
+
+            </div>
+            <div class="form-group col-md-2">
+                <h3>Sede</h3>
+                <select class="form-control">
+                    <option>Sede 1</option> 
+                </select>
+
+            </div>
+            <div class="form-group col-md-2">
+                <h3>Dia</h3>
+                <select class="form-control">
+                    <option>Jueves</option>
+                </select>
+
+            </div>
+            <div class="form-group col-md-2">
+                <h3>Horario</h3>
+                <select class="form-control">
+                    <option>20 pm</option>
+                </select>
+
+            </div>
+            <input type="submit" value="Continuar con la reserva" class="btn btn-success col-md-12"  />
+        </form>
+
+</div>

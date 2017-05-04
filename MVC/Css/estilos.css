@@ -115,4 +115,14 @@ body {
 
     margin-top:3%;
 }
+.formularioReserva{
+    margin-top:10%;
+}
+
 /*FIN FORMULARIOS*/
+
+/*Tablas*/
+.descripcionTabla{
+    max-width:20%;
+}
+/*FIN Tablas*/
