@@ -132,6 +132,7 @@
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\formularios.js" />
     <Content Include="Js\jquery-3.2.1.min.js" />
+    <Content Include="Js\jquery.validate.min.js" />
     <Content Include="Js\npm.js" />
     <Content Include="Js\practica.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -9,63 +9,75 @@
     <div class="text-center ">
         <h2>Reserva</h2>
     </div>
-    <div class="progress">
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="text-center">
+       <span id="progreso" class="progreso">0%</span>
     </div>
    
-        <form action="/Peliculas/reserva2" method="post">
-            <fieldset>
+        <form action="/Peliculas/reserva2" id="formularioReserva" method="post">
+            <fieldset id="paso1">
                 <div class="form-group col-md-2">
                     <h3>Version</h3>
-                    <div class="col-md-12">
-                        <div class="checkbox col-md-6"> <label><input type="checkbox" value="" id="" />Español</label></div>
-                        <div class="checkbox col-md-6"> <label><input type="checkbox" value="" id="" />Subtitulada</label></div>
+
+                    <div class="col-md-4">
+                        <div class="checkbox col-md-12"> <label><input type="checkbox" value="español" id="" />Español</label></div>
+                        <div class="checkbox col-md-12"> <label><input type="checkbox" value="subtitulada" id="" />Subtitulada</label></div>
                     </div>
-                    <div>
-                        
-                        <input type="button" class="btn bg-info" value="siguiente"/>  
-                       
+                    <div col-md-4>
+
+                        <input type="button" id="botonSiguiente1" class="btn bg-info btn-block" value="siguiente" />
+
                     </div>
-                 
+                    <div id="mensaje1" class="mensajeError col-md-12">Seleccione una version</div>
+                   
+
                 </div>
-               
+
             </fieldset>
-            <fieldset>
-                <div class="form-group col-md-2">
+            <fieldset id="paso2">
+                <div class="form-group col-md-offset-2 col-md-2">
                     <h3>Sede</h3>
-                    <select class="form-control">
-                        <option>Sede 1</option>
+                    <select class="form-control" id="sede">
+                        <option value="0">Seleccionar sede</option>
+                        <option value="2">Sede</option>
                     </select>
+                   
                     <div>
-                        <input type="button" class="btn bg-warning" value="anterior" />
-                        <input type="button" class="btn bg-info" value="siguiente" />
+                        <input type="button" id="botonAnterior1" class="btn bg-warning col-md-6" value="anterior" />
+                        <input type="button" id="botonSiguiente2" class="btn bg-info col-md-6" value="siguiente" />
                     </div>
+                    <div id="mensaje2" class="mensajeError col-md-12">Seleccione una Sede</div>
                 </div>
-            </fieldset>
-            <fieldset>
-                <div class="form-group col-md-2">
+            </fieldset >
+            <fieldset id="paso3" >
+                <div class="form-group col-md-offset-4 col-md-2">
                     <h3>Dia</h3>
-                    <select class="form-control">
-                        <option>Jueves</option>
+                    <select class="form-control" id="dia">
+                        <option value="0">Seleccionar dia</option>
+                        <option value="2">dia</option>
                     </select>
+                   
                     <div>
-                        <input type="button" class="btn bg-warning" value="anterior" />
-                        <input type="button" class="btn bg-info" value="siguiente" />
+                        <input type="button" id="botonAnterior2" class="btn bg-warning col-md-6" value="anterior" />
+                        <input type="button" id="botonSiguiente3" class="btn bg-info col-md-6" value="siguiente" />
                     </div>
+                    <div id="mensaje3" class="mensajeError col-md-12">Seleccione un dia</div>
                 </div>
             </fieldset>
-            <fieldset>
-                <div class="form-group col-md-2">
+            <fieldset id="paso4">
+                <div class="form-group col-md-offset-6 col-md-2">
                     <h3>Horario</h3>
-                    <select class="form-control">
-                        <option>20 pm</option>
+                    <select class="form-control" id="horario">
+                        <option value="0">Seleccionar hora</option>
+                        <option value="2">6 pm</option>
                     </select>
+                    <div id="mensaje4" class="mensajeError col-md-12">Seleccione un horario</div>
                     <div>
-                        <input type="button" class="btn bg-warning" value="anterior" />
+                        <input type="button" id="botonAnterior3" class="btn bg-warning btn-block" value="anterior" />
                      
                     </div>
+                    <div id="mensaje3" class="mensajeError col-md-12">Seleccione un dia</div>
                 </div>
-                <input type="submit" value="Continuar con la reserva" class="btn btn-success col-md-12" />
+                <input type="submit" id="reservaBotonEnviar" value="Continuar con la reserva" class="btn btn-success col-md-12" />
              </fieldset>
    </form>
 

@@ -64,46 +64,47 @@
 </div>
 <div class="col-md-offset-1 col-md-5">
     <div class="text-center text"><h3>Finalizar Reserva</h3></div>
-    <form class="form">
+    <form class="form" id="formularioReserva2">
 
         <div class="form-group">
-            <label class="control-label">Nombre</label>
+            <label class="control-label" >Nombre</label>
             <div>
-                <input class="form-control" />
+                <input class="form-control"  id="nombreReserva"/>
             </div>
+            <div id="mensaje" class="mensajeError col-md-12">Coloque un nombre correcto</div>
         </div>
         <div class="form-group">
-            <label class="control-label ">Tipo de documento</label>
+            <label class="control-label " >Tipo de documento</label>
            <div>
                <div class="col-md-6">
-                   <select class="form-control ">
+                   <select class="form-control " id="tipoDocReserva">
                        <option>Dni</option>
                        <option>Otro</option>
                    </select>
                </div>
                <div class="col-md-6">
-                   <input class="form-control" />
+                   <input class="form-control" id="numeroDocReserva" />
                </div>
+               <div id="mensaje2" class="mensajeError col-md-12">Seleccione tipo de documento</div>
+               <div id="mensaje3" class="mensajeError col-md-12">Coloque un documento válido</div>
            </div>
         </div>
         <div class="form-group">
             <label class="control-label">Cantidad De Entradas</label>
             <div>
-                <input type="number" class="form-control bfh-number">
+                <input type="number" class="form-control bfh-number" id="cantidadDeEntradasReserva" >
             </div>
+            <div id="mensaje4" class="mensajeError col-md-12">Coloque una cantidad mayo a 0 y menor a 15</div>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-success col-md-12 " value="Reservar"/>
+            <input type="submit" id="btnReserva2" class="btn btn-success col-md-12 " value="Reservar"/>
         </div>
         <div class="form-group  alert alert-warning  col-md-12">
             <span class=""> Recuerda revisar que los datos sean los correctos antes de reservar</span>
 
         </div>
 
-        <div class="form-group  alert alert-danger  col-md-12">
-           <span class="" > Error: Ingrese..</span>
-            
-        </div>
+       
 
     </form>
     
