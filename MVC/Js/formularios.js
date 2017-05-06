@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
 
     /*
-        !!!!!!!FORMULARIO RESERVA 1!!!!!!!!
+        !!!!!!!FORMULARIO RESERVA 1!!!!!!!! comente los mss pq no se puede validar con jquery
     
     */
   $("#paso1").show();
@@ -50,7 +50,7 @@
     $("#botonSiguiente1").click(function () {
         var version = $("input[type = 'checkbox' ]:checked");
         if (version.length == 0 || version.length == 2) {
-            $("#mensaje1").fadeIn(100);
+           // $("#mensaje1").fadeIn(100);
             return false;
         }
         else {
@@ -67,7 +67,7 @@
         var sede = $("#sede").val();
         if (validarQueElSelectNoSea0(sede) == false)
         {
-            $("#mensaje2").fadeIn(100);
+            //$("#mensaje2").fadeIn(100);
        
             return false;
         }
@@ -83,7 +83,7 @@
     $("#botonSiguiente3").click(function () {
         var dia = $("#dia").val();
         if (validarQueElSelectNoSea0(dia) == false) {
-            $("#mensaje3").fadeIn(100);
+            //$("#mensaje3").fadeIn(100);
             return false;
            
 
@@ -100,7 +100,7 @@
     $("#reservaBotonEnviar").click(function () {
         var horario = $("#horario").val();
         if (validarQueElSelectNoSea0(horario) == false) {
-            $("#mensaje4").fadeIn(100);
+            //$("#mensaje4").fadeIn(100);
             
             return false;
             
@@ -134,9 +134,10 @@
      */
     //*************************************************************************************//
     /*
-        !!!!!!!FORMULARIO RESERVA 2!!!!!!!!
+        !!!!!!!FORMULARIO RESERVA 2!!!!!!!! lo comente pq no se puede validar on jquery
     
     */
+    /*
 
     $("#btnReserva2").click(function () {
         var nombre = $("#nombreReserva").val();
@@ -165,7 +166,7 @@
 
             return false;
         }
-    });
+    });*/
     /*
         !!!!!!!FIN FORMULARIO RESERVA 2!!!!!!!!
     
