@@ -171,6 +171,9 @@
         !!!!!!!FIN FORMULARIO RESERVA 2!!!!!!!!
     
     */
+    //--datepicker reportes
+    $("#fechaInicio").datepicker();
+    $("#fechaHasta").datepicker();
 });
 
 function validarQueElSelectNoSea0(e)
@@ -183,3 +186,4 @@ function validarQueElSelectNoSea0(e)
         return true
     }
 }
+

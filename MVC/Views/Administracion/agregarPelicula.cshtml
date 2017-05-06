@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "agregarPelicula";
+    Layout = "~/Views/Shared/_AdministradorBase.cshtml";
+}
+
+<div class="col-md-offset-3 col-md-6">
+    <div class="text-center"><h3>Agregar una pelicula</h3></div>
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="" class="control-label">Nombre</label>
+                <div>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label">Descripción</label>
+                <div>
+                    <textarea class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label">Calificación</label>
+                <div>
+                    <select class="form-control">
+                        <option value="">ATP</option>
+                        <option value="">+13</option>
+                        <option value="">+13 CON RESERVA</option>
+                        <option value="">+16</option>
+                        <option value="">+16 CON RESERVA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label">Género</label>
+                <div>
+                    <select class="form-control">
+                        <option value="">Acción</option>
+                        <option value="">Terror</option>
+                        <option value="">Animada</option>
+                        <option value="">Comedia</option>
+                        <option value="">Drama</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Tengo dudas con la img-->
+            <div class="form-group">
+                <label for="" class="control-label">Imagen</label>
+                <div>
+                    <input type="file" value="Imagen" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="control-label">Duración</label>
+                <div>
+                    <input type="number" class="form-control" />
+                </div>
+            </div>
+            <input type="submit" class="btn btn-block btn-success" value="Agregar película" />
+        </form>
+    </div>
+</div>
+

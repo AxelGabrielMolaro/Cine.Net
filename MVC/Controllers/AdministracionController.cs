@@ -18,5 +18,31 @@ namespace MVC.Controllers
         {
             return View();
         }
+        //peeliculas
+        public ActionResult peliculas()
+        {
+            return View();
+        }
+
+        public ActionResult agregarPelicula()
+        {
+            return View();
+        }
+        //sede
+        public ActionResult sedes()
+        {
+            return View();
+        }
+
+        public ActionResult agregarSede()
+        {
+            return View();
+        }
+        //reservas
+        public ActionResult reportes()
+        {
+            return View();
+
+        }
     }
 }

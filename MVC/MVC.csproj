@@ -125,6 +125,7 @@
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\estilos.css" />
+    <Content Include="Css\jquery-ui.css" />
     <Content Include="Global.asax" />
     <Content Include="Img\check_23024.png" />
     <Content Include="Img\CINE.jpg" />
@@ -132,6 +133,7 @@
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\formularios.js" />
     <Content Include="Js\jquery-3.2.1.min.js" />
+    <Content Include="Js\jquery-ui.min.js" />
     <Content Include="Js\jquery.validate.min.js" />
     <Content Include="Js\npm.js" />
     <Content Include="Js\practica.js" />
@@ -184,6 +186,11 @@
     <Content Include="Views\Practica\practica4.cshtml" />
     <Content Include="Views\Practica\practica5.cshtml" />
     <Content Include="Views\Practica\practica6.cshtml" />
+    <Content Include="Views\Administracion\peliculas.cshtml" />
+    <Content Include="Views\Administracion\agregarPelicula.cshtml" />
+    <Content Include="Views\Administracion\sedes.cshtml" />
+    <Content Include="Views\Administracion\agregarSede.cshtml" />
+    <Content Include="Views\Administracion\reportes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
