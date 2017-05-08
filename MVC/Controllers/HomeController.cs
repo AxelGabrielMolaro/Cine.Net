@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,13 +17,33 @@ namespace MVC.Controllers
 
         public ActionResult inicio()
         {
-
+            
             return View();
         }
 
         public ActionResult login()
         {
-           return View();
+            ModelAndViewLogin modeloLogin = new ModelAndViewLogin();
+           return View(modeloLogin);
+        }
+
+        [HttpPost]
+        public ActionResult login( ModelAndViewLogin model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                ViewBag.bienvenido = ("Bienvenido"  + model.nombre);//no anda ver bien dps con la bdd
+                return Redirect("/Administracion/inicio");
+            }
+            else
+            {
+              
+                return Redirect("login");
+            }
+            
+             
+            
         }
     }
 }
