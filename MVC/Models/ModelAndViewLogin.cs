@@ -8,9 +8,11 @@ namespace MVC.Models
 {
     public class ModelAndViewLogin
     {
-        [StringLength(12 ,ErrorMessage ="Error en el nombre")]
-        public String nombre { get; set; }
-        [StringLength(12, ErrorMessage ="Error en el contraseñañ")]
-        public String contraseña { get; set; }
+        [StringLength(12, ErrorMessage = "El nombre no puede contener más de 12 caracteres")]
+        [Required(ErrorMessage = "Ingrese su nombre")]
+        public string nombre { get; set; }
+        [StringLength(12, ErrorMessage = "La contraseña no puede contener más de 12 caracteres")]
+        [Required(ErrorMessage = "Debe ingresar una contraseña")]
+        public string contraseña { get; set; }
     }
 }

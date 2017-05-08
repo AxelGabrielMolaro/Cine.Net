@@ -19,6 +19,11 @@
 }
 
 <div class="container-fluid">
+    
+    @if (TempData["Mensaje"] != null)
+    {
+        <h4> @TempData["Mensaje"] </h4>
+    }
         
     <!-- coarousel-->
 

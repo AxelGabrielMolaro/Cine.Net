@@ -31,19 +31,17 @@ namespace MVC.Controllers
         public ActionResult login( ModelAndViewLogin model)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                ViewBag.bienvenido = ("Bienvenido"  + model.nombre);//no anda ver bien dps con la bdd
-                return Redirect("/Administracion/inicio");
+                return View(model);
+                
             }
-            else
-            {
-              
-                return Redirect("login");
-            }
-            
-             
-            
+
+            TempData["Mensaje"] = "Bienvenido/a " + model.nombre;
+            return RedirectToAction("inicio");
+
+            /* ViewBag.bienvenido = ("Bienvenido " + model.nombre);//no anda ver bien dps con la bdd
+            return Redirect("/Administracion/inicio"); */
         }
     }
 }
