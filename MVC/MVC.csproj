@@ -156,6 +156,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelAndViewLogin.cs" />
+    <Compile Include="Models\ModelAndViewReservaFinal.cs" />
+    <Compile Include="Models\ModelAndViewReserva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
