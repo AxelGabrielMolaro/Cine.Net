@@ -267,6 +267,7 @@
     <Content Include="Views\Administracion\sedes.cshtml" />
     <Content Include="Views\Administracion\agregarSede.cshtml" />
     <Content Include="Views\Administracion\reportes.cshtml" />
+    <Content Include="Views\Administracion\modificarSede.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

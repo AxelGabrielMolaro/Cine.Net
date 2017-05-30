@@ -11,7 +11,8 @@ namespace MVC.DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Sedes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +21,14 @@ namespace MVC.DAL
             this.Carteleras = new HashSet<Carteleras>();
             this.Reservas = new HashSet<Reservas>();
         }
-    
+
+        [Required(ErrorMessage="Campo obligatorio")]
         public int IdSede { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Nombre { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Direccion { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public decimal PrecioGeneral { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
