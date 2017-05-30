@@ -1,60 +1,75 @@
-﻿
+﻿@model MVC.DAL.Peliculas
 @{
     ViewBag.Title = "agregarPelicula";
     Layout = "~/Views/Shared/_AdministradorBase.cshtml";
+    MVC.DAL.TPEntities ctx = new MVC.DAL.TPEntities();
+    var calificaciones = (from c in ctx.Calificaciones
+                          select c).ToList();
+    var generos = (from g in ctx.Generos
+                   select g).ToList();
 }
 
 <div class="col-md-offset-3 col-md-6">
+    <hr />
+    <div class="btn btn-xs btn-default">
+        @Html.ActionLink("Volver", "peliculas")
+    </div>
     <div class="text-center"><h3>Agregar una pelicula</h3></div>
     <div>
-        <form>
+        <form action="agregarPelicula" method="post">
             <div class="form-group">
                 <label for="" class="control-label">Nombre</label>
                 <div>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" name="Nombre" />
+                    @Html.ValidationMessageFor(x => x.Nombre)
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="control-label">Descripción</label>
                 <div>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="Descripcion"></textarea>
+                    @Html.ValidationMessageFor(x => x.Descripcion)
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="control-label">Calificación</label>
                 <div>
-                    <select class="form-control">
-                        <option value="">ATP</option>
-                        <option value="">+13</option>
-                        <option value="">+13 CON RESERVA</option>
-                        <option value="">+16</option>
-                        <option value="">+16 CON RESERVA</option>
+                    <select name="IdCalificacion">
+                        <option value="">  </option>
+                        @foreach (var c in calificaciones)
+                        {
+                            <option value="@c.IdCalificacion"> @c.Nombre </option>
+                        }
                     </select>
+                    @Html.ValidationMessageFor(x => x.IdCalificacion)
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="control-label">Género</label>
                 <div>
-                    <select class="form-control">
-                        <option value="">Acción</option>
-                        <option value="">Terror</option>
-                        <option value="">Animada</option>
-                        <option value="">Comedia</option>
-                        <option value="">Drama</option>
+                    <select name="IdGenero">
+                        <option value="">  </option>
+                        @foreach (var g in generos)
+                        {
+                            <option value="@g.IdGenero"> @g.Nombre </option>
+                        }
                     </select>
+                    @Html.ValidationMessageFor(x => x.IdGenero)
                 </div>
             </div>
             <!-- Tengo dudas con la img-->
             <div class="form-group">
                 <label for="" class="control-label">Imagen</label>
                 <div>
-                    <input type="file" value="Imagen" />
+                    <input type="file" name="Imagen" />
+                    @Html.ValidationMessageFor(x => x.Imagen)
                 </div>
             </div>
             <div class="form-group">
                 <label for="" class="control-label">Duración</label>
                 <div>
-                    <input type="number" class="form-control" />
+                    <input type="number" class="form-control" name="Duracion" />
+                    @Html.ValidationMessageFor(x => x.Duracion)
                 </div>
             </div>
             <input type="submit" class="btn btn-block btn-success" value="Agregar película" />

@@ -11,7 +11,8 @@ namespace MVC.DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Peliculas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,14 +21,22 @@ namespace MVC.DAL
             this.Carteleras = new HashSet<Carteleras>();
             this.Reservas = new HashSet<Reservas>();
         }
-    
+
+        [Required(ErrorMessage="Campo obligatorio")]
         public int IdPelicula { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Nombre { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Descripcion { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Imagen { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public int IdCalificacion { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public int IdGenero { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public int Duracion { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public System.DateTime FechaCarga { get; set; }
     
         public virtual Calificaciones Calificaciones { get; set; }

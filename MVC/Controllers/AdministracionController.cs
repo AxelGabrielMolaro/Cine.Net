@@ -19,14 +19,71 @@ namespace MVC.Controllers
         {
             return View();
         }
-        //peeliculas
+
+        /* 
+         * 5.5 Gestión de Películas (/administracion/peliculas) (*) 
+         * 
+         * Esta opción permitirá la carga de las películas que serán proyectadas dentro de las salas de 
+         * cine. 
+         * 
+         * Se deberá visualizar el listado de todas las películas registradas en el sistema. 
+         * 
+         * La vista tendrá un listado de todas las películas y un botón “Nuevo” para dar de alta nuevas 
+         * películas. Desde el listado el usuario podrá seleccionar la película que desea modificar. 
+         * 
+         * Para el caso de una nueva película, se deberán ingresar los siguientes datos: 
+         * 
+         * - nombre. 
+         * - descripción. 
+         * - calificación (ATP, mayores de 13,mayores de 13 con reservas, mayores de 16, mayores 
+         * de 16 con reserva) 
+         * - género (terror, thriller, acción, comedia, comedia romántica, etc.) 
+         * - imagen. 
+         * - duración. 
+         * 
+         * Todos los datos son obligatorios. Para los datos de calificación y género, serán provistos dentro 
+         * del modelo de datos. Los mismos deberán ser visualizados en listados seleccionables por el 
+         * usuario. 
+         * 
+         * Las películas no se podrán eliminar. 
+         * (*) En caso de no estar logueado, debe redirigirse a /home/login y luego de que el usuario          * ingrese se lo debe auto-redirigir a la página que deseaba ingresar.
+         */
         public ActionResult peliculas()
         {
-            return View();
+            TPEntities ctx = new TPEntities();
+            var peliculas = (from p in ctx.Peliculas
+                         select p).ToList();
+            if (peliculas.Count() == 0)
+            {
+                ViewBag.NoHayPeliculas = "No hay películas registradas";
+            }
+            return View(peliculas);
         }
 
         public ActionResult agregarPelicula()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult agregarPelicula(Peliculas pelicula)
+        {
+            if (ModelState.IsValid)
+            {
+                Peliculas p = new Peliculas();
+                p.Nombre = pelicula.Nombre;
+                p.Descripcion = pelicula.Descripcion;
+                p.IdCalificacion = pelicula.IdCalificacion;
+                p.IdGenero = pelicula.IdGenero;
+                p.Imagen = pelicula.Imagen;
+                p.Duracion = pelicula.Duracion;
+                p.FechaCarga = DateTime.Now;
+                TPEntities ctx = new TPEntities();
+                ctx.Peliculas.Add(p);
+                ctx.SaveChanges();
+                TempData["PeliculaAgregada"] = "¡La película " + p.Nombre + " se agregó correctamente!";
+                return RedirectToAction("peliculas");
+            }
             return View();
         }
 
@@ -80,7 +137,7 @@ namespace MVC.Controllers
                 TPEntities ctx = new TPEntities();
                 ctx.Sedes.Add(s);
                 ctx.SaveChanges();
-                TempData["SedeAgregada"] = "¡La sede se agregó correctamente!";
+                TempData["SedeAgregada"] = "¡La sede " + s.Nombre + " se agregó correctamente!";
                 return RedirectToAction("sedes"); 
             }
             return View();
@@ -106,6 +163,7 @@ namespace MVC.Controllers
                     sd.Direccion = sede.Direccion;
                     sd.PrecioGeneral = sede.PrecioGeneral;
                     ctx.SaveChanges();
+                    TempData["SedeModificada"] = "¡La sede " + sd.Nombre + " se modificó correctamente!";
                     return RedirectToAction("sedes");
                 }
             }
