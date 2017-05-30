@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,11 +32,31 @@ namespace MVC.Controllers
         //sede
         public ActionResult sedes()
         {
-            return View();
+            TPEntities ctx = new TPEntities();
+            var sedes = (from s in ctx.Sedes
+                         select s).ToList();
+            return View(sedes);
         }
 
         public ActionResult agregarSede()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult agregarSede(Sedes sede)
+        {
+            if (ModelState.IsValid)
+            {
+                Sedes s = new Sedes();
+                s.Nombre = sede.Nombre;
+                s.Direccion = sede.Direccion;
+                s.PrecioGeneral = sede.PrecioGeneral;
+                TPEntities ctx = new TPEntities();
+                ctx.Sedes.Add(s);
+                ctx.SaveChanges();
+                return RedirectToAction("sedes");
+            }
             return View();
         }
         //reservas

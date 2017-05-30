@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +84,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,6 +127,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\20171C_TP.mdf" />
+    <Content Include="App_Data\20171C_TP_log.ldf">
+      <DependentUpon>20171C_TP.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -126,6 +140,16 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\estilos.css" />
     <Content Include="Css\jquery-ui.css" />
+    <Content Include="DAL\20171C_TPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
+      <LastGenOutput>20171C_TPModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\20171C_TPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
+      <LastGenOutput>20171C_TPModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Img\check_23024.png" />
     <Content Include="Img\CINE.jpg" />
@@ -139,6 +163,13 @@
     <Content Include="Js\practica.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="DAL\20171C_TPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>20171C_TPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\20171C_TPModel.edmx.diagram">
+      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -152,6 +183,48 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
+    <Compile Include="DAL\20171C_TPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>20171C_TPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\20171C_TPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\20171C_TPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Calificaciones.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Carteleras.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Generos.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Peliculas.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Reservas.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Sedes.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TiposDocumentos.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Usuarios.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Versiones.cs">
+      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,7 +275,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

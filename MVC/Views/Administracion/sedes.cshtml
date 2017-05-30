@@ -1,4 +1,4 @@
-﻿
+﻿@model List<MVC.DAL.Sedes>
 @{
     ViewBag.Title = "sedes";
     Layout = "~/Views/Shared/_AdministradorBase.cshtml";
@@ -13,17 +13,19 @@
                 <th>Dirección</th>
                 <th>Precio de entrada general</th>
                 <th><a href="/Administracion/agregarSede"><input type="button" class="btn bn-block btn-success col-md-12" value="Nuevo" /></a></th>
-              
+
             </tr>
         </thead>
         <tbody>
-            <tr class="warning">
-                <td>Shoping sj</td>
-                <td>Ruta3 3213</td>
-                <td>$ 80</td>
-                <td><a><input type="button" class="btn btn-info btn-block" value="Modificar"></a></td>
-            </tr>
-            
+            @foreach (var s in @Model)
+            {
+                <tr class="warning">
+                    <td>@s.Nombre</td>
+                    <td>@s.Direccion</td>
+                    <td>$@s.PrecioGeneral</td>
+                    <td><a><input type="button" class="btn btn-info btn-block" value="Modificar"></a></td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

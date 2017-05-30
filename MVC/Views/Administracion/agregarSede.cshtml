@@ -1,4 +1,4 @@
-﻿
+﻿@model  MVC.DAL.Sedes
 @{
     ViewBag.Title = "agregarSede";
     Layout = "~/Views/Shared/_AdministradorBase.cshtml";
@@ -7,29 +7,23 @@
 <div class="col-md-offset-3 col-md-6">
     <div class="text-center "><h3>Agregar una sede</h3></div>
     <div>
-        <form class="form">
+        <form class="form" action="agregarSede" method="post">
             <div class="form-group">
                 <label for="" class="control-label">Nombre</label>
                 <div>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" name="Nombre" />
                 </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="" class="control-label">Calle</label>
+            <div class="form-group">
+                <label for="" class="control-label">Dirección</label>
                 <div>
-                    <input type="text" class="form-control" />
-                </div>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="" class="control-label">úmero</label>
-                <div>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" name="Direccion" />
                 </div>
             </div>
             <div class="form-group ">
                 <label for="" class="control-label">Precio general de la entrada</label>
                 <div>
-                    <input type="number" class="form-control" />
+                    <input type="number" class="form-control" name="PrecioGeneral" />
                 </div>
             </div>
             <input type="submit" class="btn btn-block btn-success" value="Agregar sede" />
