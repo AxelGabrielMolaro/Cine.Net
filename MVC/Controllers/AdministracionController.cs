@@ -87,6 +87,37 @@ namespace MVC.Controllers
             return View();
         }
 
+        public ActionResult modificarPelicula(int id)
+        {
+            var ctx = new TPEntities();
+            Peliculas pelicula = ctx.Peliculas.FirstOrDefault(p => p.IdPelicula == id);
+            return View(pelicula);
+        }
+
+        [HttpPost]
+        public ActionResult modificarPelicula(Peliculas pelicula)
+        {
+            if (ModelState.IsValid)
+            {
+                var ctx = new TPEntities();
+                Peliculas peli = ctx.Peliculas.FirstOrDefault(p => p.IdPelicula == pelicula.IdPelicula);
+                if (peli != null)
+                {
+                    peli.Nombre = pelicula.Nombre;
+                    peli.Descripcion = pelicula.Descripcion;
+                    peli.IdCalificacion = pelicula.IdCalificacion;
+                    peli.IdGenero = pelicula.IdGenero;
+                    peli.Imagen = pelicula.Imagen;
+                    peli.Duracion = pelicula.Duracion;
+                    ctx.SaveChanges();
+                    TempData["PeliculaModificada"] = "¡La película " + peli.Nombre + " se modificó correctamente!";
+                    return RedirectToAction("peliculas");
+                }
+            }
+            ModelState.AddModelError("IdPelicula", "La película no existe");
+            return View(pelicula);
+        }
+
         /* 
          * 5.6 Gestión de Sedes (/adiministracion/sedes) (*) 
          * 

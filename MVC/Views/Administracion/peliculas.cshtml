@@ -36,7 +36,9 @@
                     </td>
                     <td class="col-md-2"> @p.Duracion horas </td>
                     <td class="col-md-2"> @p.FechaCarga </td> 
-                    <td class="col-md-2">  </td>
+                    <td class="col-md-2">
+                        @Html.ActionLink("Modificar", "modificarPelicula", new { id = @p.IdPelicula })
+                    </td>
                 </tr>
             }
         </tbody>
