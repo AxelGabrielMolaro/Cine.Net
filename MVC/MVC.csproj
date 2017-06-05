@@ -179,7 +179,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
+    <Compile Include="DaoImpl\PeliculaDaoImpl.cs" />
     <Compile Include="DaoImpl\UsuarioDaoImpl.cs" />
+    <Compile Include="Dao\PeliculaDao.cs" />
     <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Entity\ADMINISTRADOR.cs">
       <DependentUpon>CineBDD.tt</DependentUpon>
@@ -223,9 +225,12 @@
     <Compile Include="Manager\RepositorioManager.cs" />
     <Compile Include="Models\ModelAndViewReservaFinal.cs" />
     <Compile Include="Models\ModelAndViewReserva.cs" />
+    <Compile Include="Models\PeliculaModelAndView.cs" />
     <Compile Include="Models\UsuarioModelAndView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesImpl\PeliculaService.cs" />
     <Compile Include="ServicesImpl\UsuarioServiceImpl.cs" />
+    <Compile Include="Services\PeliculaService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>

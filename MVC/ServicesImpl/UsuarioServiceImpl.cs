@@ -12,7 +12,7 @@ namespace MVC.ServicesImpl
     {
 
         UsuarioDaoImpl usuarioDao = new UsuarioDaoImpl();
-
+            
         //Le pasas un nombre , lo va a buscar en la bdd ,y va a ver si coinciden las contraseñas
         //Si counciden devuelve un usuario , si no counciden tira una excepcion
         public USUARIO login(string nombre, string contraseña)

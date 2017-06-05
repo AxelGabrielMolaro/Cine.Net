@@ -1,4 +1,4 @@
-﻿@model List<MVC.DAL.Peliculas>
+﻿@model MVC.Models.PeliculaModelAndView
 @{
     ViewBag.Title = "peliculas";
     Layout = "~/Views/Shared/_AdministradorBase.cshtml";
@@ -6,6 +6,7 @@
 
 <div>
     <div class="text-center"><h3>Mis peliculas</h3></div>
+    <div class="text-center alert-danger"> <h4>@ViewBag.errorPelicula</h4></div>
     <table class="table ">
         <thead>
             <tr class="success">
@@ -13,9 +14,9 @@
                 <th>Descripción</th>
                 <th>Calificación</th>
                 <th>Género</th>
-                <th>Imagen</th>
+               <!-- <th>Imagen</th>-->
                 <th>Duración</th>
-                <th>Fecha de carga</th>
+                <!-- <th>Fecha de carga</th>-->
                 <th>
                     <a href="/Administracion/agregarPelicula">
                         <input type="button" class="btn bn-block btn-success col-md-12" value="Nueva" />
@@ -24,38 +25,42 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var p in @Model)
+            @foreach (var p in Model.listadoDePeliculas)
             {
                 <tr class="warning">
-                    <td class="col-md-2"> @p.Nombre </td>
-                    <td class="col-md-2"> @p.Descripcion </td>
-                    <td class="col-md-2"> @p.Calificaciones.Nombre </td>
-                    <td class="col-md-2"> @p.Generos.Nombre </td>
+                    <td class="col-md-2"> @p.NOMBRE </td>
+                    <td class="col-md-2"> @p.DESCRIPCION </td>
+                    <td class="col-md-2"> @p.CALIFICACION.ToString() </td>
+                    <td class="col-md-2"> @p.GENERO.ToString(); </td>
+                    <!--
                     <td class="col-md-2">
-                        <img src="@p.Imagen" alt="imagen de la película" width="75" height="75" />
-                    </td>
-                    <td class="col-md-2"> @p.Duracion horas </td>
-                    <td class="col-md-2"> @p.FechaCarga </td> 
+                        <img src="ARROBA p.Imagen" alt="imagen de la película" width="75" height="75" />
+                    </td >-->
+                        
+                    <td class="col-md-2"> @p.DURACION horas </td>
+                     <!--<td class="col-md-2"> ARROBA p.FECHADE </td>
                     <td class="col-md-2">
-                        @Html.ActionLink("Modificar", "modificarPelicula", new { id = @p.IdPelicula })
-                    </td>
+                       <!--Botron modificar con el campo hiddem-->
+                    
                 </tr>
             }
         </tbody>
     </table>
-    <div class="text-center">
+
+
+   <!-- <div class="text-center">
         <h3>
-            @ViewBag.NoHayPeliculas
+            ViewBag.NoHayPeliculas
             </h3>
         </div>
         <div class="text-center">
             <h3>
-                @TempData["PeliculaAgregada"]
+                TempData["PeliculaAgregada"]
             </h3>
         </div>
         <div class="text-center">
             <h3>
-                @TempData["PeliculaModificada"]
+                TempData["PeliculaModificada"]
             </h3>
-        </div>
+       -->      
     </div>
