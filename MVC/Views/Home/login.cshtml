@@ -1,4 +1,4 @@
-﻿@model MVC.Models.ModelAndViewLogin
+﻿@model MVC.Models.UsuarioModelAndView
 
 @{
     ViewBag.Title = "login";
@@ -8,35 +8,38 @@
 @section cabezeraAdmin
 {
     <div class="well">
-        <div class="text-left"> <a href="/Home/inicio" class="alert-link" ><input class="btn btn-info" value="Volver"/></a></div>
+        <div class="text-left"> <a href="/Home/inicio" class="alert-link"><input class="btn btn-info" value="Volver" /></a></div>
     </div>
 }
 
 
 
-    <div class="col-md-offset-3 col-md-6 formularioDeLogueo" >
-      
+<div class="col-md-offset-3 col-md-6 formularioDeLogueo">
 
-          <form method="post" action="/Home/login">
-               
-                <div class="form-group">
-                <label class="control-label"  for="">Nombre de usuario</label>
-                <div>
-                    <input type="text" class="form-control" name="nombre" id="nombre"/>
-                   
-                    <div class="alert-danger text-danger">@Html.ValidationMessageFor(model => model.nombre)</div>
-                </div>
+
+    <form method="post" action="/Home/login">
+
+        <div class="form-group">
+            <label class="control-label" for="">Nombre de usuario</label>
+            <div>
+                <input type="text" class="form-control" name="nombreUsuarioModel" id="nombreUsuarioModel" />
+
+                <div class="alert-danger text-danger">@Html.ValidationMessageFor(model => model.nombreUsuarioModel)</div>
             </div>
-            <div class="form-group">
-                <label class="control-label" for="">Contraseña</label>
-  
-                <div>
-                    <input type="password" class="form-control" name="contraseña" id="contraseña"/>
-                    <div class="alert-danger text-danger"> @Html.ValidationMessageFor(x => x.contraseña)</div>
-                    </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="">Contraseña</label>
+
+            <div>
+                <input type="password" class="form-control" name="contraseñaUsuarioModel" id="contraseñaUsuarioModel" />
+                <div class="alert-danger text-danger"> @Html.ValidationMessageFor(x => x.contraseñaUsuarioModel)</div>
             </div>
-            <input type="submit" class="form-control btn btn-success" value="Ingresar" />
-        </form>
+        </div>
+        <input type="submit" class="form-control btn btn-success" value="Ingresar" />
+    </form>
+    <div class="alert-danger text-center te" >
+       <h3>@ViewBag.errorLogin</h3>
+    </div>
 
 </div>
 

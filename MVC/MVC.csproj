@@ -127,10 +127,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\20171C_TP.mdf" />
-    <Content Include="App_Data\20171C_TP_log.ldf">
-      <DependentUpon>20171C_TP.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -140,15 +136,15 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\estilos.css" />
     <Content Include="Css\jquery-ui.css" />
-    <Content Include="DAL\20171C_TPModel.Context.tt">
+    <Content Include="Entity\CineBDD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
-      <LastGenOutput>20171C_TPModel.Context.cs</LastGenOutput>
+      <DependentUpon>CineBDD.edmx</DependentUpon>
+      <LastGenOutput>CineBDD.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DAL\20171C_TPModel.tt">
+    <Content Include="Entity\CineBDD.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
-      <LastGenOutput>20171C_TPModel.cs</LastGenOutput>
+      <DependentUpon>CineBDD.edmx</DependentUpon>
+      <LastGenOutput>CineBDD.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Img\check_23024.png" />
@@ -163,12 +159,12 @@
     <Content Include="Js\practica.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="DAL\20171C_TPModel.edmx">
+    <EntityDeploy Include="Entity\CineBDD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>20171C_TPModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CineBDD.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DAL\20171C_TPModel.edmx.diagram">
-      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
+    <Content Include="Entity\CineBDD.edmx.diagram">
+      <DependentUpon>CineBDD.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -183,55 +179,54 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
-    <Compile Include="DAL\20171C_TPModel.Context.cs">
+    <Compile Include="DaoImpl\UsuarioDaoImpl.cs" />
+    <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Entity\ADMINISTRADOR.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CARTELERA.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CineBDD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>20171C_TPModel.Context.tt</DependentUpon>
+      <DependentUpon>CineBDD.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\20171C_TPModel.cs">
+    <Compile Include="Entity\CineBDD.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+      <DependentUpon>CineBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\20171C_TPModel.Designer.cs">
+    <Compile Include="Entity\CineBDD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>20171C_TPModel.edmx</DependentUpon>
+      <DependentUpon>CineBDD.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Calificaciones.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    <Compile Include="Entity\PELICULA.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Carteleras.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    <Compile Include="Entity\REPORTES_DE_RESERVAS.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Generos.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    <Compile Include="Entity\RESERVA.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Peliculas.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    <Compile Include="Entity\SEDE.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Reservas.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Sedes.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\TiposDocumentos.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Usuarios.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Versiones.cs">
-      <DependentUpon>20171C_TPModel.tt</DependentUpon>
+    <Compile Include="Entity\USUARIO.cs">
+      <DependentUpon>CineBDD.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelAndViewLogin.cs" />
+    <Compile Include="Manager\RepositorioManager.cs" />
     <Compile Include="Models\ModelAndViewReservaFinal.cs" />
     <Compile Include="Models\ModelAndViewReserva.cs" />
+    <Compile Include="Models\UsuarioModelAndView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesImpl\UsuarioServiceImpl.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -251,7 +246,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\Shared\_AdministradorBase.cshtml" />
     <Content Include="Views\Administracion\inicio.cshtml" />
     <Content Include="Views\Peliculas\reserva.cshtml" />
@@ -269,6 +263,7 @@
     <Content Include="Views\Administracion\reportes.cshtml" />
     <Content Include="Views\Administracion\modificarSede.cshtml" />
     <Content Include="Views\Administracion\modificarPelicula.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -278,6 +273,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

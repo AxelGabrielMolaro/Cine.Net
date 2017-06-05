@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95501a58e04f44a7b71c662403d9df99" Name="Diagram1">
+        <EntityTypeShape EntityType="CineEntityModel.ADMINISTRADOR" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CineEntityModel.CARTELERA" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CineEntityModel.PELICULA" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CineEntityModel.REPORTES_DE_RESERVAS" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CineEntityModel.RESERVA" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CineEntityModel.SEDE" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CineEntityModel.USUARIO" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="CineEntityModel.FK__SEDE__ID_CARTELE__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="CineEntityModel.FK__RESERVA__ID_PELI__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="CineEntityModel.FK__REPORTES___ID_RE__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="CineEntityModel.FK__RESERVA__ID_SEDE__38996AB5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
