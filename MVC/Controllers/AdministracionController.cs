@@ -34,10 +34,13 @@ namespace MVC.Controllers
                 ViewBag.ErrorPelicula = "";
                
                 model.listadoDePeliculas = peliculaService.getListadoDePeliculas();
-                
+                  var imagen = model.listadoDePeliculas[0].IMAGEN;
+              
+               
+                //no anada lo de la imagen
 
-                new File = (model.listadoDePeliculas[0].IMAGEN);
-                ViewBag.imagenp = model.listadoDePeliculas[0].IMAGEN;
+                
+                ViewBag.imagenp = imagen;
                 return View(model);
             }
             catch (Exception e)
