@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using MVC.ServicesImpl;
 using MVC.Models;
+using System.Web.UI.HtmlControls;
+using System.IO;
+using System.Drawing;
 
 namespace MVC.Controllers
 {
@@ -29,8 +32,12 @@ namespace MVC.Controllers
             try
             {
                 ViewBag.ErrorPelicula = "";
-                
+               
                 model.listadoDePeliculas = peliculaService.getListadoDePeliculas();
+                
+
+                new File = (model.listadoDePeliculas[0].IMAGEN);
+                ViewBag.imagenp = model.listadoDePeliculas[0].IMAGEN;
                 return View(model);
             }
             catch (Exception e)
@@ -55,21 +62,26 @@ namespace MVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View( model);
+                return View(model);
             }
             else
             {
-               // try
+                // try
                 //{
-                    ViewBag.ErrorPelicula = "";
-                    Entity.PELICULA peliculaAAgregar = new Entity.PELICULA();
+                ViewBag.ErrorPelicula = "";
+                Entity.PELICULA peliculaAAgregar = new Entity.PELICULA();
 
-                    peliculaAAgregar.NOMBRE = model.nombrePelicula;
-                    peliculaAAgregar.DESCRIPCION = model.descripcionPelicula;
-                    peliculaAAgregar.CALIFICACION = Int32.Parse(model.calificacionPelicula);
-                    peliculaAAgregar.DURACION = model.descripcionPelicula;
-                    peliculaAAgregar.GENERO = model.generoPelicula;
-                    peliculaAAgregar.IMAGEN = Convert.FromBase64String(model.imagenPelicula);
+
+
+                peliculaAAgregar.NOMBRE = model.nombrePelicula;
+                peliculaAAgregar.DESCRIPCION = model.descripcionPelicula;
+                peliculaAAgregar.CALIFICACION = Int32.Parse(model.calificacionPelicula);
+                peliculaAAgregar.DURACION = model.descripcionPelicula;
+                peliculaAAgregar.GENERO = model.generoPelicula;
+
+                //Imagen
+                //peliculaAAgregar.IMAGEN = new byte[imagen.ContentLength];
+                peliculaAAgregar.IMAGEN = new byte[model.imagenPelicula.Length];
                     peliculaService.grabarUnaPelicula(peliculaAAgregar);
                     return RedirectToAction("peliculas");
                 /*}

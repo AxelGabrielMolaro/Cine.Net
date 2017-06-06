@@ -16,13 +16,15 @@ namespace MVC.Models
         public string imagenPelicula { get; set; }
         public string duracionPelicula { get; set; }
 
+
         public byte[] imagenPeliculaBdd { get; set; }
 
         //para listar las peliculas
-        public List<PELICULA> listadoDePeliculas;
+        public List<PELICULA> listadoDePeliculas { get; set; }
+      
 
         //para recibir File Imagen Del Formulario
-        
+
         public HttpPostedFileBase imagenCargadaPelicula { get; set; }
 
         public PeliculaModelAndView()
@@ -38,5 +40,7 @@ namespace MVC.Models
 
 
         }
+
+
     }
 }

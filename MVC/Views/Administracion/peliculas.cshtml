@@ -10,11 +10,11 @@
     <table class="table ">
         <thead>
             <tr class="success">
+                <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Calificación</th>
                 <th>Género</th>
-               <!-- <th>Imagen</th>-->
                 <th>Duración</th>
                 <!-- <th>Fecha de carga</th>-->
                 <th>
@@ -28,24 +28,29 @@
             @foreach (var p in Model.listadoDePeliculas)
             {
                 <tr class="warning">
+                    <td><img src="@p.IMAGEN " alt="Imagen de la pelicula"  width="75" height="75" />@p.IMAGEN </td>
                     <td class="col-md-2"> @p.NOMBRE </td>
                     <td class="col-md-2"> @p.DESCRIPCION </td>
                     <td class="col-md-2"> @p.CALIFICACION.ToString() </td>
                     <td class="col-md-2"> @p.GENERO.ToString(); </td>
                     <!--
-                    <td class="col-md-2">
-                        <img src="ARROBA p.Imagen" alt="imagen de la película" width="75" height="75" />
-                    </td >-->
-                        
+                <td class="col-md-2">
+                    <img src="ARROBA p.Imagen" alt="imagen de la película" width="75" height="75" />
+                </td >-->
+
                     <td class="col-md-2"> @p.DURACION horas </td>
-                     <!--<td class="col-md-2"> ARROBA p.FECHADE </td>
-                    <td class="col-md-2">
-                       <!--Botron modificar con el campo hiddem-->
-                    
+                    <!--<td class="col-md-2"> ARROBA p.FECHADE </td>
+                <td class="col-md-2">
+                   <!--Botron modificar con el campo hiddem-->
+
                 </tr>
             }
         </tbody>
+     
+        
     </table>
+
+    <img src="" alt="Imagen de la pelicula" width="75" height="75" /> asda @ViewBag.imagenp
 
 
    <!-- <div class="text-center">
