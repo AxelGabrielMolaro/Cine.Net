@@ -52,16 +52,26 @@ namespace MVC.DaoImpl
             else
             {
                 SEDE sede = getSedePorId(id);
-                
+               
                 if (nombre != null)
                 {
                     sede.NOMBRE = nombre;
                 }
-                else if (direccion != null)
+                else
+                {
+                    throw new Exception("Error al modificar usuario en la base de datos, hay campos vacios");
+                }
+
+                if (direccion != null )
                 {
                     sede.DIRECCION = direccion;
                 }
-                else if (precioEntradaGeneral != null)
+                else
+                {
+                    throw new Exception("Error al modificar usuario en la base de datos, hay campos vacios");
+                }
+
+                if (precioEntradaGeneral != null )
                 {
                     sede.PRECIO_ENTRADA_GENERAL = Convert.ToInt32(precioEntradaGeneral);
                 }
@@ -70,8 +80,10 @@ namespace MVC.DaoImpl
                     throw new Exception("Error al modificar usuario en la base de datos, hay campos vacios");
                 }
 
-                
-                grabarSedeEnLaBdd(sede);
+
+
+                repositorioManager.ctx.SaveChanges();
+               
        
             }
         }

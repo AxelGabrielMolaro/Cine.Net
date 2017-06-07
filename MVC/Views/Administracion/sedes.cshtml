@@ -1,4 +1,4 @@
-﻿@model List<MVC.DAL.Sedes>
+﻿@model MVC.Models.SedeModelAndView
 
 @{
     ViewBag.Title = "sedes";
@@ -6,11 +6,13 @@
 }
 
 <div>
-    <div class="text-center">
+    <div class="text-center col-md-12">
         <h3>
             Lista de sedes
         </h3>
+        
     </div>
+    <div class="col-md-12 alert-danger">@ViewBag.errorSede</div>
     <table class="table">
         <thead>
             <tr class="success">
@@ -18,40 +20,39 @@
                 <th>Dirección</th>
                 <th>Precio de entrada general</th>
                 <th>
-                    <a href="/Administracion/agregarSede">
-                        <input type="button" class="btn bn-block btn-success col-md-12" value="Nueva" />
-                    </a>
+                    <form method="post" action="/Administracion/agregarSede">
+                        <input type="hidden" value="0" name="idSede" />
+                        <input type="submit" class="btn bn-block btn-success col-md-12" value="Nueva" />
+                    </form>
+                    
+                       
+                    
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var s in @Model)
-            {
-                <tr class="warning">
-                    <td>@s.Nombre</td>
-                    <td>@s.Direccion</td>
-                    <td>$@s.PrecioGeneral</td>
-                    <td>
-                        @Html.ActionLink("Modificar", "modificarSede", new { id = @s.IdSede })
-                    </td>
-                </tr>
-            }
+           
+                @foreach (var sede in Model.listadoDeSedes)
+                {
+                    <tr class="warning">
+                        <td>@sede.NOMBRE</td>
+                        <td>@sede.DIRECCION</td>
+                        <td>$ @sede.PRECIO_ENTRADA_GENERAL</td>
+                        <td>
+                            <form action="/Administracion/agregarSede" method="post">
+                                <input type="hidden" name="idSede" value="@sede.ID" />
+                                <input type="submit" class="btn btn-warning" value="Modificar" />
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            
+           
         </tbody>
     </table>
-    <div class="text-center">
-        <h3>
-            @ViewBag.NoHaySedes
-        </h3>
-    </div>
-    <div class="text-center">
-        <h3>
-            @TempData["SedeAgregada"]
-        </h3>
-    </div> 
-    <div class="text-center">
-        <h3>
-            @TempData["SedeModificada"]
-        </h3>
-    </div>
+   
+    
+    
 </div>
 
