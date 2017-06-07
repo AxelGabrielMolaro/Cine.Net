@@ -23,10 +23,12 @@ namespace MVC.Models
         public string direccionSede { get; set; }
 
         //[Required(ErrorMessage = "Por favor ingrese el precio de la sede")]
+        [RegularExpression("[0-9]", ErrorMessage = "Son solo valido numeros en este campo")]
         [MaxLength(30, ErrorMessage = "El precio de la sede no puede ser mayor a 30 caracteres")]
         public string precioEntradaGeneral { get; set; }
 
         //Lo uso para listar sedes
+        
         public List<SEDE> listadoDeSedes { get; set; }
 
         //aca creo un constructor donde seteo los valores de la clase de la bdd a las propiedades

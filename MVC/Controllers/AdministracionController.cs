@@ -167,7 +167,12 @@ namespace MVC.Controllers
         public ActionResult agregarSedePost(SedeModelAndView model)
         {
 
-            
+            if (!ModelState.IsValid)
+            {
+                return View("AgregarSede", model);
+            }
+            else
+            {
 
                 if (model.idSede == null || model.idSede == "0")//agrega
                 {
@@ -182,10 +187,10 @@ namespace MVC.Controllers
                     }
                     catch (Exception e)
                     {
-                    ViewBag.errorSede = "Error al agregar sede, por favor no lene los campos vacios.";
-                    return View("agregarSede",model);
+                        ViewBag.errorSede = "Error al agregar sede, por favor no lene los campos vacios.";
+                        return View("agregarSede", model);
 
-                }
+                    }
 
                     return RedirectToAction("sedes");
                 }
@@ -203,7 +208,9 @@ namespace MVC.Controllers
                     }
                     return RedirectToAction("sedes");
                 }
-            
+
+            }
+
         }
         //reservas
         public ActionResult reportes()
