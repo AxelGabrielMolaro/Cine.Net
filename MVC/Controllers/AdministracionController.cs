@@ -161,6 +161,8 @@ namespace MVC.Controllers
             
         }
 
+        //aca si es una sede nueva agrega si no edita , llama a los metodos correspondientes
+        //ante la peticion por request
         [HttpPost]
         public ActionResult agregarSedePost(SedeModelAndView model)
         {
