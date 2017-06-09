@@ -4,3 +4,9 @@ la db con el nombre "20171C_TP"
 3.Copiar y pegar el db.text ensqlserver 
 4.correrlo
 5.correr el sqcrip insert descomentando los inset y comentando los select
+6. Vuelen el la db de entitys en el proyecto mvc
+7.agreguen elemento y busquen la db como en clase
+8.cuando le pida el primer nombre le agregarn "TPBDDCINE"
+9.despues de hacer la conexion seleccionan tabals, y abajo hay un coco para escribir 
+"NO LO TOQUEN DEJENLO COMO ESTA"
+10.Aceptan y crea todo
