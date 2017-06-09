@@ -29,8 +29,13 @@
             <div class="form-group">
                 <label for="" class="control-label">Calificación</label>
                 <div>
-                    <select name="calificacionPelicula">
-                        <option value="1"> Ver, por ahora va a ser 1 </option>
+                    <select name="idCalificacionPeliculaModel">
+                        @foreach (var calificacion in Model.listadoDeCalificaciones)
+                        {
+                            <option value="@calificacion.IdCalificacion" name="idCalificacionPeliculaModel"> @calificacion.Nombre</option>
+                        }
+
+                        
                         
                     </select>
                     @Html.ValidationMessageFor(x => x.idCalificacionPeliculaModel)
@@ -39,18 +44,22 @@
             <div class="form-group">
                 <label for="" class="control-label">Género</label>
                 <div>
-                    <select name="generoPelicula">
-                        <option value="accion">  Aca iria el genero, por ahora accion</option>
+                    <select name="idgeneroPeliculaModel">
+                        @foreach (var genero in Model.listadoDeGeneros)
+                        {
+                            <option value="@genero.IdGenero" name="idgeneroPeliculaModel"> @genero.Nombre</option>
+                        }
+
                       
                     </select>
                     @Html.ValidationMessageFor(x => x.idgeneroPeliculaModel)
                 </div>
             </div>
-             Tengo dudas con la img
+          
             <div class="form-group">
                 <label for="" class="control-label" >Imagen</label>
                 <div>
-                    <input type="text" name="imagenPelicula" id="imagenPelicula" value="ver esto.png"/>
+                    <input type="file" name="imagenPelicula" id="imagenPelicula" value="ver esto.png"/>
                     @Html.ValidationMessageFor(x => x.imagenPeliculaModel)
                 </div>
             </div>

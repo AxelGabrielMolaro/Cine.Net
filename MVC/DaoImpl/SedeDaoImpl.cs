@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using MVC.Entity;
 using MVC.Manager;
+using System.Data.Entity;
+
 namespace MVC.DaoImpl
 {
     public class SedeDaoImpl 
@@ -80,8 +82,8 @@ namespace MVC.DaoImpl
                     throw new Exception("Error al modificar usuario en la base de datos, hay campos vacios");
                 }
 
-
-
+                repositorioManager.ctx.Sedes.Attach(sede);
+                repositorioManager.ctx.Entry(sede).State = EntityState.Modified;
                 repositorioManager.ctx.SaveChanges();
                
        

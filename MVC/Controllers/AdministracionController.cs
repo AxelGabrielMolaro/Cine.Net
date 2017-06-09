@@ -58,13 +58,15 @@ namespace MVC.Controllers
         public ActionResult agregarPelicula()
         {
             PeliculaModelAndView model = new PeliculaModelAndView();
+           // model.llenarListados();
             return View(model);
         }
         [HttpPost]
-        public ActionResult agregarPelicula(PeliculaModelAndView model)
+        public ActionResult agregarPelicula(PeliculaModelAndView model, HttpPostedFileBase imagenPelicula)
         {
             if (!ModelState.IsValid)
             {
+                //model.llenarListados();
                 return View(model);
             }
             else
@@ -73,18 +75,52 @@ namespace MVC.Controllers
                 {
                 ViewBag.ErrorPelicula = "";
                 Entity.Peliculas peliculaAAgregar = new Entity.Peliculas();
+                    string savePath = "C:\\App.Net\\Cine.Net\\MVC\\ImagenesDelServidor\\";
+                    string fileName = imagenPelicula.FileName;
+                    string pathToCheck = savePath + fileName;
+                    string tempfileName = "";
+                    if (System.IO.File.Exists(pathToCheck))
+                    {
+                        int counter = 2;
+                        while (System.IO.File.Exists(pathToCheck))
+                        {
+                            // if a file with this name already exists,
+                            // prefix the filename with a number.
+                            tempfileName = counter.ToString() + fileName;
+                            pathToCheck = savePath + tempfileName;
+                            counter++;
+                        }
+
+                        fileName = tempfileName;
+
+       
+                  
+                    }
+                    else
+                    {
+                        
+                    }
+
+                    // Append the name of the file to upload to the path.
+                    savePath += fileName;
+
+                    // Call the SaveAs method to save the uploaded
+                    // file to the specified directory.
+                    imagenPelicula.SaveAs(savePath);
 
 
 
-                peliculaAAgregar.Nombre = model.nombrePeliculaModel;
-                peliculaAAgregar.Descripcion = model.descripcionPeliculaModel;
-                peliculaAAgregar.IdCalificacion = Convert.ToInt32(model.idCalificacionPeliculaModel);
-                peliculaAAgregar.Duracion = Convert.ToInt32(model.duracionPeliculaModel);
-                peliculaAAgregar.IdGenero =Convert.ToInt32( model.idgeneroPeliculaModel);
-                //imagen
-                //fecha
-              
-             
+                    peliculaAAgregar.Nombre = model.nombrePeliculaModel;
+                     peliculaAAgregar.Descripcion = model.descripcionPeliculaModel;
+                     peliculaAAgregar.IdCalificacion = Convert.ToInt32(model.idCalificacionPeliculaModel);
+                     peliculaAAgregar.Duracion = Convert.ToInt32(model.duracionPeliculaModel);
+                     peliculaAAgregar.IdGenero =Convert.ToInt32( model.idgeneroPeliculaModel);
+                    peliculaAAgregar.Imagen =  savePath;
+                    peliculaAAgregar.FechaCarga = DateTime.Now;
+                    //imagen
+                    //fecha
+
+
                     peliculaService.grabarUnaPelicula(peliculaAAgregar);
                     return RedirectToAction("peliculas");
                 }

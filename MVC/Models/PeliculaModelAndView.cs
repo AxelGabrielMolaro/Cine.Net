@@ -4,10 +4,17 @@ using System.Linq;
 using System.Web;
 using MVC.Entity;
 using System.ComponentModel.DataAnnotations;
+using MVC.ServicesImpl;
+
 namespace MVC.Models
 {
     public class PeliculaModelAndView :Peliculas
     {
+        //implementacion de metodos 
+        GeneroServiceImpl generoService = new GeneroServiceImpl();
+        CalificacionServiceImpl calificaionService = new CalificacionServiceImpl();
+        
+        //Strings 
         public string idPeliculaModel { get; set; }
         public string nombrePeliculaModel { get; set; }
         public string descripcionPeliculaModel { get; set; }
@@ -17,14 +24,20 @@ namespace MVC.Models
         public string duracionPeliculaModel { get; set; }
         public string fechaDeCargaPeliculaModel { get; set; }
 
-
-        //public byte[] imagenPeliculaBdd { get; set; }
+        //objetos
+        public Generos generoObjetoModel { get; set; }
+        public Calificaciones calificaionGeneroModel { get; set; }
+       
 
         //para listar las peliculas
         public List<Peliculas> listadoDePeliculas { get; set; }
-      
 
-      
+        //listar combos
+        public List<Generos> listadoDeGeneros { get; set; }
+        public List<Calificaciones> listadoDeCalificaciones { get; set; }
+
+
+
         public PeliculaModelAndView()
         {
             this.idPeliculaModel = IdPelicula.ToString();
@@ -37,7 +50,24 @@ namespace MVC.Models
             this.fechaDeCargaPeliculaModel = FechaCarga.ToString(); 
             this.listadoDePeliculas = new List<Peliculas>();
 
+            llenarListados();
+            //this.generoObjetoModel = generoService.getGeneroPorId(IdGenero);
 
+        }
+
+        //llena la lista genero y calificaciones
+        public void llenarListados()
+        {
+            try
+            {
+                this.listadoDeGeneros = generoService.getListadoDeGeneros();
+                this.listadoDeCalificaciones = calificaionService.getListadoDeCalificaciones();
+            }
+
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+            }
         }
 
 

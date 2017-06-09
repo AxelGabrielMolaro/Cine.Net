@@ -147,6 +147,7 @@
       <LastGenOutput>TPBDDCINE.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="ImagenesDelServidor\imagenDePrueba.jpg" />
     <Content Include="Img\check_23024.png" />
     <Content Include="Img\CINE.jpg" />
     <Content Include="Js\bootstrap.js" />
@@ -157,6 +158,9 @@
     <Content Include="Js\jquery.validate.min.js" />
     <Content Include="Js\npm.js" />
     <Content Include="Js\practica.js" />
+    <Content Include="ScriptsBDD\DB.txt" />
+    <Content Include="ScriptsBDD\Insert - Copia.txt" />
+    <Content Include="ScriptsBDD\Instructivo.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Entity\TPBDDCINE.edmx">
@@ -179,6 +183,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
+    <Compile Include="DaoImpl\CalificacionDaoImpls.cs" />
+    <Compile Include="DaoImpl\GeneroDaoImpl.cs" />
     <Compile Include="DaoImpl\PeliculaDaoImpl.cs" />
     <Compile Include="DaoImpl\SedeDaoImpl.cs" />
     <Compile Include="DaoImpl\UsuarioDaoImpl.cs" />
@@ -234,6 +240,8 @@
     <Compile Include="Models\SedeModelAndView.cs" />
     <Compile Include="Models\UsuarioModelAndView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicesImpl\CalificacionServiceImpl.cs" />
+    <Compile Include="ServicesImpl\GeneroServiceImpl.cs" />
     <Compile Include="ServicesImpl\PeliculaServiceImpl.cs" />
     <Compile Include="ServicesImpl\SedeServiceImpl.cs" />
     <Compile Include="ServicesImpl\UsuarioServiceImpl.cs" />

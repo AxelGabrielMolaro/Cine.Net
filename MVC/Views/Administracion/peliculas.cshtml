@@ -29,12 +29,12 @@
             @foreach (var p in Model.listadoDePeliculas)
             {
                 <tr class="warning">
-                    <td>ver fecha</td>
-                    <td><img src="" alt="Imagen de la pelicula" width="75" height="75" /> </td>
+                    <td>@p.FechaCarga</td>
+                    <td><img src="@p.Imagen" alt="Imagen de la pelicula" width="75" height="75" /> </td>
                     <td class="col-md-2"> @p.Nombre </td>
                     <td class="col-md-2"> @p.Descripcion </td>
-                    <td class="col-md-2"> @p.IdCalificacion </td>
-                    <td class="col-md-2"> @p.IdGenero </td>
+                    <td class="col-md-2"> @p.Calificaciones.Nombre </td>
+                    <td class="col-md-2"> @p.Generos.Nombre </td>
                     <td class="col-md-2"> @p.Duracion  </td>
 
                 </tr>
