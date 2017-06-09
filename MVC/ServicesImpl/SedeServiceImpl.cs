@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVC.Entity;
-using MVC.Services;
+
 using MVC.DaoImpl;
 namespace MVC.ServicesImpl
 {
-    public class sedeServiceImpl : SedeService
+    public class sedeServiceImpl 
     {
         SedeDaoImpl sedeDao = new SedeDaoImpl();
 
         //crea una sede, si es null tira error que lo trato en el controlador
-        public void crearSede(SEDE sedeAGrabar)
+        public void crearSede(Sedes sedeAGrabar)
         {
             if (sedeAGrabar == null)
             {
@@ -38,9 +38,9 @@ namespace MVC.ServicesImpl
         }
 
         //Trae todas las sedes, si esta vacia tira exepcion , y si no trae el listado
-        public List<SEDE> getListadoDeSedes()
+        public List<Sedes> getListadoDeSedes()
         {
-            List<SEDE> listado = sedeDao.getListadoDeSedes();
+            List<Sedes> listado = sedeDao.getListadoDeSedes();
             if (listado == null || listado.ToArray().Length == 0)
             {
                 throw new Exception("No hay sedes cargadas");
@@ -52,9 +52,9 @@ namespace MVC.ServicesImpl
         }
 
         //trae una sede por id , si el id es 0 tira error, o si la sede que traigo no existe
-        public SEDE getSedePorId(int id)
+        public Sedes getSedePorId(int id)
         {
-            SEDE sede = sedeDao.getSedePorId(id);
+            Sedes sede = sedeDao.getSedePorId(id);
             if(id == 0)
             {
                 throw new Exception("Error al buscar sede. Esa sede no existe");

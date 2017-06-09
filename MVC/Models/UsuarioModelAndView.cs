@@ -7,10 +7,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC.Models
 {
-    public class UsuarioModelAndView  : USUARIO
+    public class UsuarioModelAndView  : Usuarios
     {
 
-        public int idUsuarioModel { get; set; }
+        public string idUsuarioModel { get; set; }
 
 
         [RegularExpression("^[a-zA-Z0-9\040]+$", ErrorMessage = "Caráctetes no validos")]
@@ -25,9 +25,9 @@ namespace MVC.Models
 
         public UsuarioModelAndView()
         {
-            this.idUsuarioModel = ID;
-            this.nombreUsuarioModel = NOMBRE;
-            this.contraseñaUsuarioModel = CONTRASEÑA;
+            this.idUsuarioModel = IdUsuario.ToString() ;
+            this.nombreUsuarioModel = NombreUsuario;
+            this.contraseñaUsuarioModel = Password;
         }
     }
 }

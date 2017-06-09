@@ -12,22 +12,23 @@ namespace MVC.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class SEDE
+    public partial class Sedes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SEDE()
+        public Sedes()
         {
-            this.RESERVA = new HashSet<RESERVA>();
+            this.Carteleras = new HashSet<Carteleras>();
+            this.Reservas = new HashSet<Reservas>();
         }
     
-        public int ID { get; set; }
-        public string NOMBRE { get; set; }
-        public string DIRECCION { get; set; }
-        public int PRECIO_ENTRADA_GENERAL { get; set; }
-        public Nullable<int> ID_CARTELERA { get; set; }
+        public int IdSede { get; set; }
+        public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public decimal PrecioGeneral { get; set; }
     
-        public virtual CARTELERA CARTELERA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RESERVA> RESERVA { get; set; }
+        public virtual ICollection<Carteleras> Carteleras { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservas> Reservas { get; set; }
     }
 }

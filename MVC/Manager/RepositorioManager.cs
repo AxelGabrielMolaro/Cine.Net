@@ -11,25 +11,30 @@ namespace MVC.Manager
      */
     public class RepositorioManager
     {
-        public CARTELERA carteleraEntity  { get; set; }
-        public SEDE sedeEntity { get; set; }
-        public RESERVA reservaEntity { get; set; }
-        public REPORTES_DE_RESERVAS reporteEntity { get; set; }
-        public PELICULA peliculaEntity { get; set; }
-        public ADMINISTRADOR administradorEntity { get; set; }
-        public USUARIO usuarioEntity { get; set; }
-        public CineEntities ctx { get; set; }
+        public Calificaciones calificacioneEntity { get; set; }
+        public Carteleras carteleraEntity  { get; set; }
+        public Sedes sedeEntity { get; set; }
+        public Reservas reservaEntity { get; set; }
+        public Generos generoEntity { get; set; }
+        // public Rrpo reporteEntity { get; set; }
+        public Peliculas peliculaEntity { get; set; }
+        public TiposDocumentos tipoDocumentoEntity { get; set; }
+        public Usuarios usuarioEntity { get; set; }
+        public  TPBDDCINE ctx { get; set; }
 
         public RepositorioManager()
         {
-            ctx = new CineEntities();//es el nombre que le di a la base de datos
-            carteleraEntity = new CARTELERA();
-            sedeEntity = new SEDE();
-            reservaEntity = new RESERVA();
-            reporteEntity = new REPORTES_DE_RESERVAS();
-            peliculaEntity = new PELICULA();
-            administradorEntity = new ADMINISTRADOR();
-            usuarioEntity = new USUARIO();
+            ctx = new TPBDDCINE();//es el nombre que le di a la base de datos
+            carteleraEntity = new Carteleras();
+            calificacioneEntity = new Calificaciones();
+            sedeEntity = new Sedes();
+            reservaEntity = new Reservas();
+            generoEntity = new Generos();
+            //reporteEntity = new REPORTES_DE_RESERVAS();
+            peliculaEntity = new Peliculas();
+            tipoDocumentoEntity = new TiposDocumentos();
+            usuarioEntity = new Usuarios();
+           
            
                
         }

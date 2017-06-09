@@ -136,15 +136,15 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\estilos.css" />
     <Content Include="Css\jquery-ui.css" />
-    <Content Include="Entity\CineBDD.Context.tt">
+    <Content Include="Entity\TPBDDCINE.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CineBDD.edmx</DependentUpon>
-      <LastGenOutput>CineBDD.Context.cs</LastGenOutput>
+      <DependentUpon>TPBDDCINE.edmx</DependentUpon>
+      <LastGenOutput>TPBDDCINE.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\CineBDD.tt">
+    <Content Include="Entity\TPBDDCINE.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CineBDD.edmx</DependentUpon>
-      <LastGenOutput>CineBDD.cs</LastGenOutput>
+      <DependentUpon>TPBDDCINE.edmx</DependentUpon>
+      <LastGenOutput>TPBDDCINE.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Img\check_23024.png" />
@@ -159,12 +159,12 @@
     <Content Include="Js\practica.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Entity\CineBDD.edmx">
+    <EntityDeploy Include="Entity\TPBDDCINE.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CineBDD.Designer.cs</LastGenOutput>
+      <LastGenOutput>TPBDDCINE.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Entity\CineBDD.edmx.diagram">
-      <DependentUpon>CineBDD.edmx</DependentUpon>
+    <Content Include="Entity\TPBDDCINE.edmx.diagram">
+      <DependentUpon>TPBDDCINE.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -182,44 +182,47 @@
     <Compile Include="DaoImpl\PeliculaDaoImpl.cs" />
     <Compile Include="DaoImpl\SedeDaoImpl.cs" />
     <Compile Include="DaoImpl\UsuarioDaoImpl.cs" />
-    <Compile Include="Dao\PeliculaDao.cs" />
-    <Compile Include="Dao\SedeDao.cs" />
-    <Compile Include="Dao\UsuarioDao.cs" />
-    <Compile Include="Entity\ADMINISTRADOR.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
+    <Compile Include="Entity\Calificaciones.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\CARTELERA.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
+    <Compile Include="Entity\Carteleras.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\CineBDD.Context.cs">
+    <Compile Include="Entity\Generos.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Peliculas.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Reservas.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Sedes.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TiposDocumentos.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TPBDDCINE.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CineBDD.Context.tt</DependentUpon>
+      <DependentUpon>TPBDDCINE.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\CineBDD.cs">
+    <Compile Include="Entity\TPBDDCINE.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CineBDD.tt</DependentUpon>
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\CineBDD.Designer.cs">
+    <Compile Include="Entity\TPBDDCINE.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CineBDD.edmx</DependentUpon>
+      <DependentUpon>TPBDDCINE.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entity\PELICULA.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
+    <Compile Include="Entity\Usuarios.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\REPORTES_DE_RESERVAS.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\RESERVA.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\SEDE.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\USUARIO.cs">
-      <DependentUpon>CineBDD.tt</DependentUpon>
+    <Compile Include="Entity\Versiones.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,11 +235,8 @@
     <Compile Include="Models\UsuarioModelAndView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesImpl\PeliculaServiceImpl.cs" />
-    <Compile Include="ServicesImpl\usuarioServiceImpll.cs" />
+    <Compile Include="ServicesImpl\SedeServiceImpl.cs" />
     <Compile Include="ServicesImpl\UsuarioServiceImpl.cs" />
-    <Compile Include="Services\PeliculaService.cs" />
-    <Compile Include="Services\SedeService.cs" />
-    <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -274,6 +274,7 @@
     <Content Include="Views\Administracion\modificarSede.cshtml" />
     <Content Include="Views\Administracion\modificarPelicula.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\prueba\pruebaAgregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

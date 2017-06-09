@@ -1,4 +1,4 @@
-﻿using MVC.Dao;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +7,15 @@ using MVC.Entity;
 using MVC.Manager;
 namespace MVC.DaoImpl
 {
-    public class PeliculaDaoImpl : PeliculaDao
+    public class PeliculaDaoImpl 
     {
         RepositorioManager repositorioManager = new RepositorioManager();
 
         //Trae todas las peliculas de la base de datos
-        public List<PELICULA> getListadoDePeliculas()
+        public List<Peliculas> getListadoDePeliculas()
         {
-            var listadoDePeliculas = (from pelicula in repositorioManager.ctx.PELICULA select pelicula);
-            List<PELICULA> listadoDePeliculasADevolver = listadoDePeliculas.ToList();
+            var listadoDePeliculas = (from pelicula in repositorioManager.ctx.Peliculas select pelicula);
+            List<Peliculas> listadoDePeliculasADevolver = listadoDePeliculas.ToList();
 
             if (listadoDePeliculas != null)
             {
@@ -29,10 +29,10 @@ namespace MVC.DaoImpl
         }
 
         //guarda una pelicula en al base de datos
-        public void grabarPeliculaEnLaBaseDeDatos(PELICULA pelicula)
+        public void grabarPeliculaEnLaBaseDeDatos(Peliculas pelicula)
         {
             
-            repositorioManager.ctx.PELICULA.Add(pelicula);
+            repositorioManager.ctx.Peliculas.Add(pelicula);
             repositorioManager.ctx.SaveChanges();
         }
     }

@@ -32,15 +32,15 @@
         </thead>
         <tbody>
            
-                @foreach (var sede in Model.listadoDeSedes)
+                @foreach (var sede in Model.listadoDeSedesModel)
                 {
                     <tr class="warning">
-                        <td>@sede.NOMBRE</td>
-                        <td>@sede.DIRECCION</td>
-                        <td>$ @sede.PRECIO_ENTRADA_GENERAL</td>
+                        <td>@sede.Nombre</td>
+                        <td>@sede.Direccion</td>
+                        <td>$ @sede.PrecioGeneral</td>
                         <td>
                             <form action="/Administracion/agregarSede" method="post">
-                                <input type="hidden" name="idSede" value="@sede.ID" />
+                                <input type="hidden" name="idSede" value="@sede.IdSede" />
                                 <input type="submit" class="btn btn-warning" value="Modificar" />
                             </form>
                         </td>

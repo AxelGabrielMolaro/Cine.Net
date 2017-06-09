@@ -12,10 +12,10 @@ namespace MVC.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class ADMINISTRADOR
+    public partial class Usuarios
     {
-        public int ID { get; set; }
-        public string NOMBRE { get; set; }
-        public string CONTRASEÑA { get; set; }
+        public int IdUsuario { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Password { get; set; }
     }
 }

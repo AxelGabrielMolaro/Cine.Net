@@ -13,10 +13,10 @@ namespace MVC.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CineEntities : DbContext
+    public partial class TPBDDCINE : DbContext
     {
-        public CineEntities()
-            : base("name=CineEntities")
+        public TPBDDCINE()
+            : base("name=TPBDDCINE")
         {
         }
     
@@ -25,12 +25,14 @@ namespace MVC.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ADMINISTRADOR> ADMINISTRADOR { get; set; }
-        public virtual DbSet<CARTELERA> CARTELERA { get; set; }
-        public virtual DbSet<PELICULA> PELICULA { get; set; }
-        public virtual DbSet<REPORTES_DE_RESERVAS> REPORTES_DE_RESERVAS { get; set; }
-        public virtual DbSet<RESERVA> RESERVA { get; set; }
-        public virtual DbSet<SEDE> SEDE { get; set; }
-        public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<Calificaciones> Calificaciones { get; set; }
+        public virtual DbSet<Carteleras> Carteleras { get; set; }
+        public virtual DbSet<Generos> Generos { get; set; }
+        public virtual DbSet<Peliculas> Peliculas { get; set; }
+        public virtual DbSet<Reservas> Reservas { get; set; }
+        public virtual DbSet<Sedes> Sedes { get; set; }
+        public virtual DbSet<TiposDocumentos> TiposDocumentos { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Versiones> Versiones { get; set; }
     }
 }

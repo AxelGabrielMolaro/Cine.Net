@@ -46,7 +46,7 @@ namespace MVC.Controllers
             }
             try
             {
-                USUARIO usuarioLogin = usuarioService.login(model.nombreUsuarioModel, model.contraseñaUsuarioModel);
+                Usuarios usuarioLogin = usuarioService.login(model.nombreUsuarioModel, model.contraseñaUsuarioModel);
                 return Redirect("/Administracion/inicio"); 
             }
             catch (Exception e)

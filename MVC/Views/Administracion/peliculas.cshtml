@@ -6,17 +6,18 @@
 
 <div>
     <div class="text-center"><h3>Mis peliculas</h3></div>
-    <div class="text-center alert-danger"> <h4>@ViewBag.errorPelicula</h4></div>
+    <div class="text-center alert-danger"> <h4>@ViewBag.ErrorPelicula</h4></div>
     <table class="table ">
         <thead>
             <tr class="success">
+                <th>Fecha de carga</th>
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Calificación</th>
                 <th>Género</th>
                 <th>Duración</th>
-                <!-- <th>Fecha de carga</th>-->
+                
                 <th>
                     <a href="/Administracion/agregarPelicula">
                         <input type="button" class="btn bn-block btn-success col-md-12" value="Nueva" />
@@ -28,20 +29,13 @@
             @foreach (var p in Model.listadoDePeliculas)
             {
                 <tr class="warning">
-                    <td><img src="@p.IMAGEN " alt="Imagen de la pelicula"  width="75" height="75" />@p.IMAGEN </td>
-                    <td class="col-md-2"> @p.NOMBRE </td>
-                    <td class="col-md-2"> @p.DESCRIPCION </td>
-                    <td class="col-md-2"> @p.CALIFICACION.ToString() </td>
-                    <td class="col-md-2"> @p.GENERO.ToString(); </td>
-                    <!--
-                <td class="col-md-2">
-                    <img src="ARROBA p.Imagen" alt="imagen de la película" width="75" height="75" />
-                </td >-->
-
-                    <td class="col-md-2"> @p.DURACION horas </td>
-                    <!--<td class="col-md-2"> ARROBA p.FECHADE </td>
-                <td class="col-md-2">
-                   <!--Botron modificar con el campo hiddem-->
+                    <td>ver fecha</td>
+                    <td><img src="" alt="Imagen de la pelicula" width="75" height="75" /> </td>
+                    <td class="col-md-2"> @p.Nombre </td>
+                    <td class="col-md-2"> @p.Descripcion </td>
+                    <td class="col-md-2"> @p.IdCalificacion </td>
+                    <td class="col-md-2"> @p.IdGenero </td>
+                    <td class="col-md-2"> @p.Duracion  </td>
 
                 </tr>
             }
@@ -49,23 +43,5 @@
      
         
     </table>
-
-    <img src="" alt="Imagen de la pelicula" width="75" height="75" /> asda @ViewBag.imagenp
-
-
-   <!-- <div class="text-center">
-        <h3>
-            ViewBag.NoHayPeliculas
-            </h3>
-        </div>
-        <div class="text-center">
-            <h3>
-                TempData["PeliculaAgregada"]
-            </h3>
-        </div>
-        <div class="text-center">
-            <h3>
-                TempData["PeliculaModificada"]
-            </h3>
-       -->      
+ 
     </div>

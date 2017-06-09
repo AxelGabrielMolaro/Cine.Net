@@ -39,19 +39,14 @@ namespace MVC.Controllers
                 ViewBag.ErrorPelicula = "";
                
                 model.listadoDePeliculas = peliculaService.getListadoDePeliculas();
-                  var imagen = model.listadoDePeliculas[0].IMAGEN;
+                  
               
-               
-                //no anada lo de la imagen
-
-                
-                ViewBag.imagenp = imagen;
                 return View(model);
             }
             catch (Exception e)
             {
                 ViewBag.ErrorPelicula = e.Message;
-                model.listadoDePeliculas = new List<PELICULA>();
+                model.listadoDePeliculas = new List<Peliculas>();
                 return View(model);
 
             }
@@ -74,30 +69,30 @@ namespace MVC.Controllers
             }
             else
             {
-                // try
-                //{
+                 try
+                {
                 ViewBag.ErrorPelicula = "";
-                Entity.PELICULA peliculaAAgregar = new Entity.PELICULA();
+                Entity.Peliculas peliculaAAgregar = new Entity.Peliculas();
 
 
 
-                peliculaAAgregar.NOMBRE = model.nombrePelicula;
-                peliculaAAgregar.DESCRIPCION = model.descripcionPelicula;
-                peliculaAAgregar.CALIFICACION = Int32.Parse(model.calificacionPelicula);
-                peliculaAAgregar.DURACION = model.descripcionPelicula;
-                peliculaAAgregar.GENERO = model.generoPelicula;
-
-                //Imagen
-                //peliculaAAgregar.IMAGEN = new byte[imagen.ContentLength];
-                peliculaAAgregar.IMAGEN = new byte[model.imagenPelicula.Length];
+                peliculaAAgregar.Nombre = model.nombrePeliculaModel;
+                peliculaAAgregar.Descripcion = model.descripcionPeliculaModel;
+                peliculaAAgregar.IdCalificacion = Convert.ToInt32(model.idCalificacionPeliculaModel);
+                peliculaAAgregar.Duracion = Convert.ToInt32(model.duracionPeliculaModel);
+                peliculaAAgregar.IdGenero =Convert.ToInt32( model.idgeneroPeliculaModel);
+                //imagen
+                //fecha
+              
+             
                     peliculaService.grabarUnaPelicula(peliculaAAgregar);
                     return RedirectToAction("peliculas");
-                /*}
+                }
                 catch (Exception e)
                 {
                     ViewBag.ErrorPelicula = e.Message;
                     return View(model);
-                }*/
+                }
             }
             
         }
@@ -118,13 +113,13 @@ namespace MVC.Controllers
                 try
                 {
                     ViewBag.errorSede = "";
-                    model.listadoDeSedes = sedeService.getListadoDeSedes();
+                    model.listadoDeSedesModel = sedeService.getListadoDeSedes();
                     return View(model);
                 }
                 catch (Exception e)
                 {
                     ViewBag.errorSede = e.Message;
-                    model.listadoDeSedes = new List<SEDE>();
+                    model.listadoDeSedesModel = new List<Sedes>();
                     return View(model);
                 }
             }
@@ -136,20 +131,20 @@ namespace MVC.Controllers
         [HttpPost]
         public ActionResult agregarSede(SedeModelAndView model)
         {
-            if (model.idSede == "0")
+            if (model.IdSede == 0)
             {
                 
-                model.nombreSede = "Ingrese nombre";
+                model.nombreSedeModel = "Ingrese nombre";
 
                 return View(new SedeModelAndView());
             }
             else {
                 try
                 {
-                    SEDE sedeAEditar = sedeService.getSedePorId(Convert.ToInt32(model.idSede));
-                    model.nombreSede = sedeAEditar.NOMBRE;
-                    model.direccionSede = sedeAEditar.DIRECCION;
-                    model.precioEntradaGeneral = sedeAEditar.PRECIO_ENTRADA_GENERAL.ToString();
+                    Sedes sedeAEditar = sedeService.getSedePorId(Convert.ToInt32(model.IdSede));
+                    model.nombreSedeModel = sedeAEditar.Nombre;
+                    model.direccionSedeModel = sedeAEditar.Direccion;
+                    model.precioEntradaGeneralModel = sedeAEditar.PrecioGeneral.ToString();
                 }
                 catch (Exception e)
                 {
@@ -174,12 +169,12 @@ namespace MVC.Controllers
             else
             {
 
-                if (model.idSede == null || model.idSede == "0")//agrega
+                if (model.idSedeModel == null || model.idSedeModel == "0")//agrega
                 {
-                    SEDE sedeAAgregar = new SEDE();
-                    sedeAAgregar.NOMBRE = model.nombreSede;
-                    sedeAAgregar.DIRECCION = model.direccionSede;
-                    sedeAAgregar.PRECIO_ENTRADA_GENERAL = Convert.ToInt32(model.precioEntradaGeneral);
+                    Sedes sedeAAgregar = new Sedes();
+                    sedeAAgregar.Nombre = model.nombreSedeModel;
+                    sedeAAgregar.Direccion = model.direccionSedeModel;
+                    sedeAAgregar.PrecioGeneral = Convert.ToInt32(model.precioEntradaGeneralModel);
                     try
                     {
                         ViewBag.errorSede = "";
@@ -199,7 +194,7 @@ namespace MVC.Controllers
                     try
                     {
                         ViewBag.errorSede = "";
-                        sedeService.modificarSedeorId(Convert.ToInt32(model.idSede), model.nombreSede, model.direccionSede, model.precioEntradaGeneral);
+                        sedeService.modificarSedeorId(Convert.ToInt32(model.idSedeModel), model.nombreSedeModel, model.direccionSedeModel, model.precioEntradaGeneralModel);
                     }
                     catch (Exception e)
                     {

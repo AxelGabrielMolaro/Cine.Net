@@ -1,4 +1,4 @@
-﻿using MVC.Dao;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using MVC.Entity;
 using MVC.Manager;
 namespace MVC.DaoImpl
 {
-    public class SedeDaoImpl : SedeDao
+    public class SedeDaoImpl 
     {
         RepositorioManager repositorioManager = new RepositorioManager();
 
@@ -15,30 +15,30 @@ namespace MVC.DaoImpl
         //Busca una sede por id y la elimina
         public void eliminarSedeDeLaBddPorId(int id)
         {
-            SEDE sedeABorrar = getSedePorId(id);
-            repositorioManager.ctx.SEDE.Remove(sedeABorrar);
+            Sedes sedeABorrar = getSedePorId(id);
+            repositorioManager.ctx.Sedes.Remove(sedeABorrar);
             repositorioManager.ctx.SaveChanges();
         }
         
         //Trae todas las sedes
-        public List<SEDE> getListadoDeSedes()
+        public List<Sedes> getListadoDeSedes()
         {
-            var listadoDESedesBdd = from sede in repositorioManager.ctx.SEDE select sede;
-            List<SEDE> listado = listadoDESedesBdd.ToList();
+            var listadoDESedesBdd = from sede in repositorioManager.ctx.Sedes select sede;
+            List<Sedes> listado = listadoDESedesBdd.ToList();
             return listado;
         }
 
         //Obtiene un sede por id
-        public SEDE getSedePorId(int id)
+        public Sedes getSedePorId(int id)
         {
-            SEDE sedeBuscada = repositorioManager.ctx.SEDE.OrderByDescending(o => o.ID == id).FirstOrDefault();
+            Sedes sedeBuscada = repositorioManager.ctx.Sedes.OrderByDescending(o => o.IdSede == id).FirstOrDefault();
             return sedeBuscada;
         }
 
         //Graba una sede en la bdd, si la id es la misma la pisa
-        public void grabarSedeEnLaBdd(SEDE sedeAGrabar)
+        public void grabarSedeEnLaBdd(Sedes sedeAGrabar)
         {
-            repositorioManager.ctx.SEDE.Add(sedeAGrabar);
+            repositorioManager.ctx.Sedes.Add(sedeAGrabar);
             repositorioManager.ctx.SaveChanges();
         }
 
@@ -51,11 +51,11 @@ namespace MVC.DaoImpl
             }
             else
             {
-                SEDE sede = getSedePorId(id);
+                Sedes sede = getSedePorId(id);
                
                 if (nombre != null)
                 {
-                    sede.NOMBRE = nombre;
+                    sede.Nombre = nombre;
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace MVC.DaoImpl
 
                 if (direccion != null )
                 {
-                    sede.DIRECCION = direccion;
+                    sede.Direccion = direccion;
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace MVC.DaoImpl
 
                 if (precioEntradaGeneral != null )
                 {
-                    sede.PRECIO_ENTRADA_GENERAL = Convert.ToInt32(precioEntradaGeneral);
+                    sede.PrecioGeneral = Convert.ToInt32(precioEntradaGeneral);
                 }
                 else
                 {

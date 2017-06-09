@@ -12,13 +12,18 @@ namespace MVC.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class REPORTES_DE_RESERVAS
+    public partial class Generos
     {
-        public int ID { get; set; }
-        public System.DateTime FECHA_DE_INICIO { get; set; }
-        public System.DateTime FECHA_DE_FIN { get; set; }
-        public Nullable<int> ID_RESERVA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Generos()
+        {
+            this.Peliculas = new HashSet<Peliculas>();
+        }
     
-        public virtual RESERVA RESERVA { get; set; }
+        public int IdGenero { get; set; }
+        public string Nombre { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Peliculas> Peliculas { get; set; }
     }
 }
