@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVC.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+
 namespace MVC.Manager
 {
 
@@ -21,11 +23,11 @@ namespace MVC.Manager
         public TiposDocumentos tipoDocumentoEntity { get; set; }
         public Usuarios usuarioEntity { get; set; } 
         public Versiones versionEntity { get; set; }
-        public  entitys ctx { get; set; }
+        public  TPBDDCINE ctx { get; set; }
 
         public RepositorioManager()
         {
-            ctx = new entitys();//es el nombre que le di a la base de datos
+            ctx = new TPBDDCINE();//es el nombre que le di a la base de datos
             carteleraEntity = new Carteleras();
             calificacioneEntity = new Calificaciones();
             sedeEntity = new Sedes();

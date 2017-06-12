@@ -5,9 +5,11 @@ using System.Web;
 using MVC.Entity;
 
 using MVC.DaoImpl;
+using System.ComponentModel.DataAnnotations;
+
 namespace MVC.ServicesImpl
 {
-    public class sedeServiceImpl 
+    public class sedeServiceImpl
     {
         SedeDaoImpl sedeDao = new SedeDaoImpl();
 
@@ -55,7 +57,7 @@ namespace MVC.ServicesImpl
         public Sedes getSedePorId(int id)
         {
             Sedes sede = sedeDao.getSedePorId(id);
-            if(id == 0)
+            if (id == 0)
             {
                 throw new Exception("Error al buscar sede. Esa sede no existe");
             }
@@ -68,7 +70,7 @@ namespace MVC.ServicesImpl
                 return sede;
             }
 
-           
+
         }
 
         //modifica una sede, si algun campo esta vacio tirra excepcion
@@ -82,6 +84,17 @@ namespace MVC.ServicesImpl
             {
                 throw new Exception("Error al modificar sede. Por favor no deje campos vacios");
             }
+        }
+        public static ValidationResult ValidadorNombreUnico(object value, ValidationContext c)
+        {
+            sedeServiceImpl sedeService = new sedeServiceImpl();
+            var model = c.ObjectInstance as Sedes;
+            List<Sedes> sedes = sedeService.getListadoDeSedes();
+            if (sedes.Any(o => o.Nombre == model.Nombre))
+            {
+                return new ValidationResult("Nombre ya registrado");
+            }
+            return ValidationResult.Success;
         }
     }
 }

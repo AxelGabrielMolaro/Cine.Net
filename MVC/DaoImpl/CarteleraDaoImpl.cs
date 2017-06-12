@@ -121,5 +121,17 @@ namespace MVC.DaoImpl
                 repositorioManager.ctx.SaveChanges();
             }
         }
+        public void eliminarCarteleraDeLaBdd(Carteleras cartelera)
+        {
+            if (cartelera == null)
+            {
+                throw new Exception("");
+            }
+            else
+            {
+                repositorioManager.ctx.Carteleras.Remove(cartelera);
+                repositorioManager.ctx.SaveChanges();
+            }
+        }
     }
 }

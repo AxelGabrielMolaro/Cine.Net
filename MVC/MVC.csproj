@@ -158,6 +158,7 @@
     <Content Include="Js\jquery.validate.min.js" />
     <Content Include="Js\npm.js" />
     <Content Include="Js\practica.js" />
+    <Content Include="Js\Validacion.js" />
     <Content Include="ScriptsBDD\DB.txt" />
     <Content Include="ScriptsBDD\Insert - Copia.txt" />
     <Content Include="ScriptsBDD\Instructivo.txt" />
@@ -200,9 +201,6 @@
     <Compile Include="Entity\Generos.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\MSreplication_options.cs">
-      <DependentUpon>TPBDDCINE.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Peliculas.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
@@ -212,16 +210,7 @@
     <Compile Include="Entity\Sedes.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\spt_fallback_db.cs">
-      <DependentUpon>TPBDDCINE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spt_fallback_dev.cs">
-      <DependentUpon>TPBDDCINE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spt_fallback_usg.cs">
-      <DependentUpon>TPBDDCINE.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\spt_monitor.cs">
+    <Compile Include="Entity\sysdiagrams.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\TiposDocumentos.cs">

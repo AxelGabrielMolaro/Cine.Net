@@ -13,10 +13,10 @@ namespace MVC.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class entitys : DbContext
+    public partial class TPBDDCINE : DbContext
     {
-        public entitys()
-            : base("name=entitys")
+        public TPBDDCINE()
+            : base("name=TPBDDCINE")
         {
         }
     
@@ -31,13 +31,9 @@ namespace MVC.Entity
         public virtual DbSet<Peliculas> Peliculas { get; set; }
         public virtual DbSet<Reservas> Reservas { get; set; }
         public virtual DbSet<Sedes> Sedes { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TiposDocumentos> TiposDocumentos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Versiones> Versiones { get; set; }
-        public virtual DbSet<MSreplication_options> MSreplication_options { get; set; }
-        public virtual DbSet<spt_fallback_db> spt_fallback_db { get; set; }
-        public virtual DbSet<spt_fallback_dev> spt_fallback_dev { get; set; }
-        public virtual DbSet<spt_fallback_usg> spt_fallback_usg { get; set; }
-        public virtual DbSet<spt_monitor> spt_monitor { get; set; }
     }
 }

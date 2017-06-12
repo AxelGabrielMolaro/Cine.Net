@@ -51,7 +51,7 @@ namespace MVC.ServicesImpl
             {
                 throw new Exception("La cartelera no existe.");
             }
-            if  (cartelera == null)
+            if (cartelera == null)
             {
                 throw new Exception("La cartelera no existe.");
             }
@@ -81,6 +81,17 @@ namespace MVC.ServicesImpl
             catch
             {
                 throw new Exception("Debe llenar todos los campos");
+            }
+        }
+        public void eliminarCartelerametodo(Carteleras cartelera)
+        {
+            try
+            {
+                carteleraDao.eliminarCarteleraDeLaBdd(cartelera);
+            }
+            catch
+            {
+                throw new Exception("Error al eliminar");
             }
         }
     }
