@@ -187,6 +187,7 @@
     <Compile Include="DaoImpl\CarteleraDaoImpl.cs" />
     <Compile Include="DaoImpl\GeneroDaoImpl.cs" />
     <Compile Include="DaoImpl\PeliculaDaoImpl.cs" />
+    <Compile Include="DaoImpl\ReservaDaoImpl.cs" />
     <Compile Include="DaoImpl\SedeDaoImpl.cs" />
     <Compile Include="DaoImpl\UsuarioDaoImpl.cs" />
     <Compile Include="DaoImpl\VersionDaoImpl.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Models\ModelAndViewReservaFinal.cs" />
     <Compile Include="Models\ModelAndViewReserva.cs" />
     <Compile Include="Models\PeliculaModelAndView.cs" />
+    <Compile Include="Models\ReservaModelAndView.cs" />
     <Compile Include="Models\SedeModelAndView.cs" />
     <Compile Include="Models\UsuarioModelAndView.cs" />
     <Compile Include="Models\VersionModelAndView.cs" />
@@ -264,6 +266,7 @@
     <Compile Include="ServicesImpl\CarteleraServiceImpl.cs" />
     <Compile Include="ServicesImpl\GeneroServiceImpl.cs" />
     <Compile Include="ServicesImpl\PeliculaServiceImpl.cs" />
+    <Compile Include="ServicesImpl\ReservaServiceImpl.cs" />
     <Compile Include="ServicesImpl\SedeServiceImpl.cs" />
     <Compile Include="ServicesImpl\UsuarioServiceImpl.cs" />
     <Compile Include="ServicesImpl\VersionServiceImpl.cs" />

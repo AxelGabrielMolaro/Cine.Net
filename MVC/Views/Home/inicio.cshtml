@@ -20,6 +20,12 @@
 
 
 
+<script>
+    function enviarFormulatio() {
+        $("#formReservaHome").submit();
+    }
+
+</script>
 
 
 
@@ -91,30 +97,33 @@
      @foreach (var pelicula in @Model.listadoDePeliculasHome)
      {
 
-        <a href="#">
-            <div class="col-md-4 ">
+        <form action="/Peliculas/reserva" method="post" id="formReservaHome">
+            <input id="idPeliculaReservaModel" value="@pelicula.IdPelicula"  type="hidden"/>
+
+            <div class="col-md-4 " onclick="enviarFormulatio()">
                 <div class="imgYDescripcion">
                     <img src="~/ImagenesDelServidor/@pelicula.Imagen" alt="Imagen de la pelicula">
                     <div class="descripcionPelicula">
                         <h3>@pelicula.Nombre</h3>
                         <p class="textoDescripcion">Genero : @pelicula.Generos.Nombre </p>
                         <p class="textoDescripcion text-center"> @pelicula.Calificaciones.Nombre Estrellas</p>
-                    <!--
-                      <div>
-                          for (int i = 0; i < 5; i++)
-                          {
+                        <!--
+                  <div>
+                      for (int i = 0; i < 5; i++)
+                      {
 
-                              <div class="col-md-2 success ">
-                                  :)
-                              </div>
-                          }
-                        </div>
-                          -->
-                      
+                          <div class="col-md-2 success ">
+                              :)
+                          </div>
+                      }
+                    </div>
+                      -->
+
                     </div>
                 </div>
             </div>
-        </a>
+        </form>
+       
 
 
      }
