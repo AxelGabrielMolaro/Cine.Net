@@ -1,4 +1,4 @@
-﻿
+﻿@model MVC.Models.HomeModelAndView
 @{
     ViewBag.Title = "inicio";
     Layout = "~/Views/Shared/_base.cshtml";
@@ -18,6 +18,11 @@
     </div>    
 }
 
+
+
+
+
+
 <div class="container-fluid">
     
     @if (TempData["Mensaje"] != null)
@@ -31,27 +36,40 @@
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
+           @for (int i = 1; i < Model.listadoDePeliculasHome.ToArray().Length; i++)
+           {
+            <li data-target="#myCarousel" data-slide-to="i"></li>
+           }
+           
+           
+            
            
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner ">
-            <div class="item active imgSlider" >
-                <img src="http://www.laguaridadekovack.com/wp-content/uploads/2017/01/rocky-3-la-guarida-de-kovack-1.jpg" alt="ImagenPelicula" >
-
+            
+           @foreach (var pelicula in @Model.listadoDePeliculasHome)
+           {
+            <div class="item active imgSlider">
+                <img src="~/ImagenesDelServidor/@pelicula.Imagen" alt="ImagenPelicula">
                 <div class="carousel-caption">
-                    <p>Genero : accion </p>
-                    <p> 5 estellas sasasa</p>
+                    <p>Genero : @pelicula.Generos.Nombre </p>
+                    <div>
+                        @for (int i = 0; i < 5; i++)
+                        {
+
+                        <div class="col-md-2  ">
+                           <p class="estrella col-md-4"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" /></p> 
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
 
-            <div class="item  imgSlider">
-                <img src="https://image.tmdb.org/t/p/w300/eDXfkjHawub1a2wZY6KCCNV5fym.jpg" alt="ImagenPelicula">
-                <h3>Rocky 4</h3>
-                <p>Gaenero :Accion </p>
-                <p> 5 estellas sasasa</p>
-            </div>
+           }
+           
+            
 
             
         </div>
@@ -70,82 +88,41 @@
 
     <!-- lista de pelis del medio-->
     <div class="col-md-offset-3 col-md-6 listaDePeliculas">
-        
+     @foreach (var pelicula in @Model.listadoDePeliculasHome)
+     {
+
         <a href="#">
             <div class="col-md-4 ">
                 <div class="imgYDescripcion">
-                    <img src="http://www.laguaridadekovack.com/wp-content/uploads/2017/01/rocky-3-la-guarida-de-kovack-1.jpg" alt="Los Angeles">
+                    <img src="~/ImagenesDelServidor/@pelicula.Imagen" alt="Imagen de la pelicula">
                     <div class="descripcionPelicula">
-                        <h3>Rocky 4</h3>
-                        <p class="textoDescripcion">Genero : Accion </p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                    </div>
+                        <h3>@pelicula.Nombre</h3>
+                        <p class="textoDescripcion">Genero : @pelicula.Generos.Nombre </p>
+                        <p class="textoDescripcion text-center"> @pelicula.Calificaciones.Nombre Estrellas</p>
+                    <!--
+                      <div>
+                          for (int i = 0; i < 5; i++)
+                          {
 
+                              <div class="col-md-2 success ">
+                                  :)
+                              </div>
+                          }
+                        </div>
+                          -->
+                      
+                    </div>
                 </div>
             </div>
-
         </a>
+
+
+     }
+
+        
         <!--eliminar-->
-        <a href="#">
-            <div class="col-md-4 ">
-                <div class="imgYDescripcion">
-                    <img src="http://www.laguaridadekovack.com/wp-content/uploads/2017/01/rocky-3-la-guarida-de-kovack-1.jpg" alt="Los Angeles">
-                    <div class="descripcionPelicula">
-                        <h3>Rocky 4</h3>
-                        <p class="textoDescripcion">Genero : Accion </p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                    </div>
+       
 
-                </div>
-            </div>
-
-        </a>
-
-        
-        <a href="#">
-            <div class="col-md-4 ">
-                <div class="imgYDescripcion">
-                    <img src="http://www.laguaridadekovack.com/wp-content/uploads/2017/01/rocky-3-la-guarida-de-kovack-1.jpg" alt="Los Angeles">
-                    <div class="descripcionPelicula">
-                        <h3>Rocky 4</h3>
-                        <p class="textoDescripcion">Genero : Accion </p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                    </div>
-
-                </div>
-            </div>
-
-        </a>
-        <a href="#">
-            <div class="col-md-4 ">
-                <div class="imgYDescripcion">
-                    <img src="http://www.laguaridadekovack.com/wp-content/uploads/2017/01/rocky-3-la-guarida-de-kovack-1.jpg" alt="Los Angeles">
-                    <div class="descripcionPelicula">
-                        <h3>Rocky 4</h3>
-                        <p class="textoDescripcion">Genero : Accion </p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                        <p class="estrella col-md-2"><img src="http://vignette1.wikia.nocookie.net/creepypasta/images/5/5e/Estrella.png/revision/latest?cb=20140413180434&path-prefix=es" alt="estellaImagen" /></p>
-                    </div>
-
-                </div>
-            </div>
-
-        </a>
 
        <!--fin eliminar-->
    </div>

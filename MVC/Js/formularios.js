@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
 
+
+
     /*
         !!!!!!!FORMULARIO RESERVA 1!!!!!!!! comente los mss pq no se puede validar con jquery
     

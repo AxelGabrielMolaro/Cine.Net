@@ -12,7 +12,7 @@ namespace MVC.Controllers
     public class HomeController : Controller
     {
         UsuarioServiceImpl usuarioService = new UsuarioServiceImpl();
-
+        PeliculaServiceImpl peliculaService = new PeliculaServiceImpl();
         // GET: Home
         public ActionResult Index()
         {
@@ -21,8 +21,9 @@ namespace MVC.Controllers
 
         public ActionResult inicio()
         {
-            
-            return View();
+            HomeModelAndView model = new HomeModelAndView();
+            model.listadoDePeliculasHome = peliculaService.getListadoDePeliculasHome();
+            return View(model);
         }
 
         public ActionResult login()

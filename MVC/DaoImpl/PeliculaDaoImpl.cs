@@ -35,5 +35,17 @@ namespace MVC.DaoImpl
             repositorioManager.ctx.Peliculas.Add(pelicula);
             repositorioManager.ctx.SaveChanges();
         }
+
+
+        /// <summary>
+        /// /Trae una pelicula por id¡
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Peliculas getPeliculaPorId(int id)
+        {
+            Peliculas peliculaBuscada = repositorioManager.ctx.Peliculas.OrderByDescending(o => o.IdPelicula == id).FirstOrDefault();
+            return peliculaBuscada;
+        }
     }
 }

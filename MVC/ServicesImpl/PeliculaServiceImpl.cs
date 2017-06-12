@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using MVC.Entity;
 using MVC.DaoImpl;
+using MVC.Manager;
 
 namespace MVC.ServicesImpl
 {
@@ -56,6 +57,62 @@ namespace MVC.ServicesImpl
             {
                 throw new  Exception("Ingrese una película antes de guardarla");
             }
+        }
+
+
+
+
+
+        /// <summary>
+        /// Trar un listado de peliculas actuales y con un mes de anticipacion
+        /// </summary>
+        public List<Peliculas> getListadoDePeliculasHome()
+        {
+            List<Peliculas> listadoDePeliculasAMostrar = new List<Peliculas>();
+            List<Carteleras> listadoDeCarteleras = getListadoDeCartelerasHome(); //ver
+            foreach (Carteleras cartelera in listadoDeCarteleras)
+            {
+                listadoDePeliculasAMostrar.Add(peliculaDao.getPeliculaPorId(cartelera.IdPelicula));
+            }
+            return listadoDePeliculasAMostrar;
+        }
+
+
+        //pasar a cartelera
+        /// <summary>
+        /// Trar un listado de carteleras actuales y con un mes de anticipacion
+        /// </summary>
+        public List<Carteleras> getListadoDeCartelerasHome()
+        {
+            
+            CarteleraDaoImpl carteleraDao = new CarteleraDaoImpl();
+            List<Carteleras> listadoDeCarteleras = carteleraDao.getListadoDeCarteleras();
+            List<Carteleras> listadoDeCartelerasAMostrar = new List<Carteleras>();
+            foreach (Carteleras cartelera in listadoDeCarteleras)
+            {
+                int mesDeHoy = DateTime.Now.Month;
+                int mesDeCartelera = cartelera.FechaInicio.Month;
+                int diferenciaFechas = mesDeCartelera -  mesDeHoy ;
+                if (cartelera.IdPelicula != 0 && diferenciaFechas <= 1)
+                {
+                    if(cartelera!=null)
+                    {
+                        listadoDeCartelerasAMostrar.Add(cartelera);
+                    }                    
+                }
+            }
+
+            return listadoDeCartelerasAMostrar;
+
+        }
+
+
+        //camviar dps 
+        public Carteleras getCarteleraPorId(int id)
+        {
+            RepositorioManager repositorioManager = new RepositorioManager();
+            Carteleras carteleraBuscada = repositorioManager.ctx.Carteleras.OrderByDescending(o => o.IdCartelera == id).FirstOrDefault();
+            return carteleraBuscada;
         }
     }
 }

@@ -252,6 +252,7 @@
     </Compile>
     <Compile Include="Manager\RepositorioManager.cs" />
     <Compile Include="Models\CarteleraModelAndView.cs" />
+    <Compile Include="Models\HomeModelAndView.cs" />
     <Compile Include="Models\ModelAndViewReservaFinal.cs" />
     <Compile Include="Models\ModelAndViewReserva.cs" />
     <Compile Include="Models\PeliculaModelAndView.cs" />
