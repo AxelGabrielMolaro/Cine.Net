@@ -8,12 +8,12 @@ using MVC.ServicesImpl;
 
 namespace MVC.Models
 {
-    public class PeliculaModelAndView :Peliculas
+    public class PeliculaModelAndView : Peliculas
     {
         //implementacion de metodos 
         GeneroServiceImpl generoService = new GeneroServiceImpl();
         CalificacionServiceImpl calificaionService = new CalificacionServiceImpl();
-        
+
         //Strings 
         public string idPeliculaModel { get; set; }
         public string nombrePeliculaModel { get; set; }
@@ -27,7 +27,7 @@ namespace MVC.Models
         //objetos
         public Generos generoObjetoModel { get; set; }
         public Calificaciones calificaionGeneroModel { get; set; }
-       
+
 
         //para listar las peliculas
         public List<Peliculas> listadoDePeliculas { get; set; }
@@ -47,7 +47,7 @@ namespace MVC.Models
             this.idgeneroPeliculaModel = IdGenero.ToString();
             this.imagenPeliculaModel = Imagen;
             this.duracionPeliculaModel = Duracion.ToString();
-            this.fechaDeCargaPeliculaModel = FechaCarga.ToString(); 
+            this.fechaDeCargaPeliculaModel = FechaCarga.ToString();
             this.listadoDePeliculas = new List<Peliculas>();
 
             llenarListados();
@@ -73,3 +73,5 @@ namespace MVC.Models
 
     }
 }
+
+  

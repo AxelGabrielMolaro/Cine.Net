@@ -17,7 +17,7 @@
                 <th>Calificación</th>
                 <th>Género</th>
                 <th>Duración</th>
-                
+
                 <th>
                     <a href="/Administracion/agregarPelicula">
                         <input type="button" class="btn bn-block btn-success col-md-12" value="Nueva" />
@@ -30,7 +30,7 @@
             {
                 <tr class="warning">
                     <td>@p.FechaCarga</td>
-                    <td><img src="@p.Imagen" alt="Imagen de la pelicula" width="75" height="75" /> </td>
+                    <td><img src="~/ImagenesDelServidor/@p.Imagen" alt="Imagen de la pelicula" width="75" height="75" /> </td>
                     <td class="col-md-2"> @p.Nombre </td>
                     <td class="col-md-2"> @p.Descripcion </td>
                     <td class="col-md-2"> @p.Calificaciones.Nombre </td>
@@ -40,8 +40,8 @@
                 </tr>
             }
         </tbody>
-     
-        
+
+
     </table>
- 
-    </div>
+
+</div>

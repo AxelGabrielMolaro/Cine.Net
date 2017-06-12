@@ -19,12 +19,13 @@ namespace MVC.Manager
         // public Rrpo reporteEntity { get; set; }
         public Peliculas peliculaEntity { get; set; }
         public TiposDocumentos tipoDocumentoEntity { get; set; }
-        public Usuarios usuarioEntity { get; set; }
-        public  TPBDDCINE ctx { get; set; }
+        public Usuarios usuarioEntity { get; set; } 
+        public Versiones versionEntity { get; set; }
+        public  entitys ctx { get; set; }
 
         public RepositorioManager()
         {
-            ctx = new TPBDDCINE();//es el nombre que le di a la base de datos
+            ctx = new entitys();//es el nombre que le di a la base de datos
             carteleraEntity = new Carteleras();
             calificacioneEntity = new Calificaciones();
             sedeEntity = new Sedes();
@@ -34,6 +35,7 @@ namespace MVC.Manager
             peliculaEntity = new Peliculas();
             tipoDocumentoEntity = new TiposDocumentos();
             usuarioEntity = new Usuarios();
+            versionEntity = new Versiones();
            
            
                

@@ -4,25 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="32e11eb4f6994ca38bc0a84addf4da3e" Name="Diagram1">
-        <EntityTypeShape EntityType="C_TPModel.Calificaciones" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Carteleras" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Generos" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Peliculas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Reservas" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Sedes" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.TiposDocumentos" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Usuarios" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="C_TPModel.Versiones" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
-        <AssociationConnector Association="C_TPModel.FK_Peliculas_Calificaciones" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Carteleras_Peliculas" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Carteleras_Sedes" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Carteleras_Versiones" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Peliculas_Generos" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Reservas_Peliculas" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Reservas_Sedes" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Reservas_TiposDocumentos" ManuallyRouted="false" />
-        <AssociationConnector Association="C_TPModel.FK_Reservas_Versiones" ManuallyRouted="false" />
+      <Diagram DiagramId="5c919d59d5914487b4613ee042444d2c" Name="Diagram1">
+        <EntityTypeShape EntityType="masterModel.Calificaciones" Width="1.5" PointX="1.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Carteleras" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Generos" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Peliculas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Reservas" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Sedes" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.TiposDocumentos" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Usuarios" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Versiones" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.MSreplication_options" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_db" Width="1.5" PointX="8.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_dev" Width="1.5" PointX="5.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_usg" Width="1.5" PointX="8.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_monitor" Width="1.5" PointX="10.75" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="masterModel.FK_Peliculas_Calificaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Carteleras_Peliculas" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Carteleras_Sedes" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Carteleras_Versiones" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Peliculas_Generos" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Reservas_Peliculas" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Reservas_Sedes" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Reservas_TiposDocumentos" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_Reservas_Versiones" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

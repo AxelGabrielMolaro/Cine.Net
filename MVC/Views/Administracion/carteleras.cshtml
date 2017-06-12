@@ -1,0 +1,104 @@
+﻿@model MVC.Models.CarteleraModelAndView
+@{
+    ViewBag.Title = "carteleras";
+    Layout = "~/Views/Shared/_AdministradorBase.cshtml";
+}
+
+<div>
+    <div class="text-center"><h3>Cartelera</h3></div>
+    <div class="text-center alert-danger"> <h4>@ViewBag.ErrorPelicula</h4></div>
+    <table class="table">
+        <thead>
+            <tr class="success">
+                <th> Sede </th>
+                <th> Película </th>
+                <th> Horario </th>
+                <th> Inicio </th>
+                <th> Fin </th>
+                <th> Sala </th>
+                <th> Versión </th>
+                <th> Fecha de carga </th>
+                <th> Disponible: </th>
+                <th>
+                    <form method="post" action="/Administracion/agregarCartelera">
+                        <input type="hidden" value="0" name="idCarteleraModel" />
+                        <input type="submit" class="btn bn-block btn-success col-md-12" value="Nueva" />
+                    </form>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model.listadoDeCarteleras)
+            {
+                <tr class="warning">
+                    <td>@c.Sedes.Nombre</td>
+                    <td> @c.Peliculas.Nombre </td>
+                    <td class="col-md-2"> @TimeSpan.FromHours(@c.HoraInicio).ToString("hh':'mm") </td>
+                    <td class="col-md-2"> @c.FechaInicio.ToShortDateString() </td>
+                    <td class="col-md-2"> @c.FechaFin.ToShortDateString() </td>
+                    <td class="col-md-2"> @c.NumeroSala </td>
+                    <td class="col-md-2"> @c.Versiones.Nombre  </td>
+                    <td class="col-md-2"> @c.FechaCarga </td> <!-- Se muestra completa? -->
+
+                    @{
+
+                        switch (c.Lunes)
+                        {
+                            case true:
+                                <td class="col-md-2"> Lunes </td>
+                                break;
+                        }
+
+                        switch (c.Martes)
+                        {
+                            case true:
+                                <td class="col-md-2"> Martes </td>
+                                break;
+                        }
+
+                        switch (c.Miercoles)
+                        {
+                            case true:
+                                <td class="col-md-2"> Miércoles </td>
+                                break;
+                        }
+
+                        switch (c.Jueves)
+                        {
+                            case true:
+                                <td class="col-md-2"> Jueves </td>
+                                break;
+                        }
+
+                        switch (c.Viernes)
+                        {
+                            case true:
+                                <td class="col-md-2"> Viernes </td>
+                                break;
+                        }
+
+                        switch (c.Sabado)
+                        {
+                            case true:
+                                <td class="col-md-2"> Sábado </td>
+                                break;
+                        }
+
+                        switch (c.Domingo)
+                        {
+                            case true:
+                                <td class="col-md-2"> Domingo </td>
+                                break;
+                        }
+                    }
+                    <td class="col-md-2">
+                        <form action="/Administracion/agregarCartelera" method="post">
+                            <input type="hidden" name="idCartelera" value="@c.IdCartelera" />
+                            <input type="submit" class="btn btn-warning" value="Modificar" />
+                        </form>
+                    </td>
+                </tr>
+                        }
+        </tbody>
+    </table>
+</div>

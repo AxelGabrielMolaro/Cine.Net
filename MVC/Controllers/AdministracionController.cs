@@ -17,7 +17,8 @@ namespace MVC.Controllers
         //todos los services que tienen mi logica
         PeliculaServiceImpl peliculaService = new PeliculaServiceImpl();
         sedeServiceImpl sedeService = new sedeServiceImpl();
-
+        //Se agrega el service de Carteleras
+        CarteleraServiceImpl carteleraService = new CarteleraServiceImpl();
 
         // GET: Administracion
         public ActionResult Index()
@@ -37,10 +38,10 @@ namespace MVC.Controllers
             try
             {
                 ViewBag.ErrorPelicula = "";
-               
+
                 model.listadoDePeliculas = peliculaService.getListadoDePeliculas();
-                  
-              
+                
+
                 return View(model);
             }
             catch (Exception e)
@@ -50,7 +51,7 @@ namespace MVC.Controllers
                 return View(model);
 
             }
-        
+
 
         }
 
@@ -58,7 +59,7 @@ namespace MVC.Controllers
         public ActionResult agregarPelicula()
         {
             PeliculaModelAndView model = new PeliculaModelAndView();
-           // model.llenarListados();
+            // model.llenarListados();
             return View(model);
         }
         [HttpPost]
@@ -71,11 +72,14 @@ namespace MVC.Controllers
             }
             else
             {
-                 try
+                try
                 {
-                ViewBag.ErrorPelicula = "";
-                Entity.Peliculas peliculaAAgregar = new Entity.Peliculas();
-                    string savePath = "C:\\App.Net\\Cine.Net\\MVC\\ImagenesDelServidor\\";
+                    ViewBag.ErrorPelicula = "";
+                    Entity.Peliculas peliculaAAgregar = new Entity.Peliculas();
+                    //Imagenes
+                    //Obtengo la ruta absoluta
+                    string appDataFolder = Server.MapPath("~/ImagenesDelServidor/");
+                    string savePath = appDataFolder;
                     string fileName = imagenPelicula.FileName;
                     string pathToCheck = savePath + fileName;
                     string tempfileName = "";
@@ -92,13 +96,10 @@ namespace MVC.Controllers
                         }
 
                         fileName = tempfileName;
-
-       
-                  
                     }
                     else
                     {
-                        
+                        Console.WriteLine("Se guardo la imagen correctamente");
                     }
 
                     // Append the name of the file to upload to the path.
@@ -111,14 +112,14 @@ namespace MVC.Controllers
 
 
                     peliculaAAgregar.Nombre = model.nombrePeliculaModel;
-                     peliculaAAgregar.Descripcion = model.descripcionPeliculaModel;
-                     peliculaAAgregar.IdCalificacion = Convert.ToInt32(model.idCalificacionPeliculaModel);
-                     peliculaAAgregar.Duracion = Convert.ToInt32(model.duracionPeliculaModel);
-                     peliculaAAgregar.IdGenero =Convert.ToInt32( model.idgeneroPeliculaModel);
-                    peliculaAAgregar.Imagen =  savePath;
+                    peliculaAAgregar.Descripcion = model.descripcionPeliculaModel;
+                    peliculaAAgregar.IdCalificacion = Convert.ToInt32(model.idCalificacionPeliculaModel);
+                    peliculaAAgregar.Duracion = Convert.ToInt32(model.duracionPeliculaModel);
+                    peliculaAAgregar.IdGenero = Convert.ToInt32(model.idgeneroPeliculaModel);
+                    peliculaAAgregar.Imagen = fileName;
                     peliculaAAgregar.FechaCarga = DateTime.Now;
-                    //imagen
-                    //fecha
+
+
 
 
                     peliculaService.grabarUnaPelicula(peliculaAAgregar);
@@ -130,7 +131,7 @@ namespace MVC.Controllers
                     return View(model);
                 }
             }
-            
+
         }
 
         //sede
@@ -159,7 +160,7 @@ namespace MVC.Controllers
                     return View(model);
                 }
             }
-          
+
         }
 
         //Envia al formulario de agregar sede
@@ -169,12 +170,13 @@ namespace MVC.Controllers
         {
             if (model.IdSede == 0)
             {
-                
+
                 model.nombreSedeModel = "Ingrese nombre";
 
                 return View(new SedeModelAndView());
             }
-            else {
+            else
+            {
                 try
                 {
                     Sedes sedeAEditar = sedeService.getSedePorId(Convert.ToInt32(model.IdSede));
@@ -189,7 +191,7 @@ namespace MVC.Controllers
                 }
                 return View(model);
             }
-            
+
         }
 
         //aca si es una sede nueva agrega si no edita , llama a los metodos correspondientes
@@ -243,6 +245,203 @@ namespace MVC.Controllers
             }
 
         }
+
+
+        //CARTELERAS 
+
+
+        /* public ActionResult carteleras()
+        {
+            CarteleraModelAndView model = new CarteleraModelAndView();
+            try
+            {
+                ViewBag.ErrorPelicula = ""; //Revisar las validaciones!
+
+                model.listadoDeCarteleras = carteleraService.getListadoDeCarteleras();
+
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                ViewBag.ErrorPelicula = e.Message;
+                model.listadoDeCarteleras = new List<Carteleras>();
+                return View(model);
+            }
+        } */
+
+
+        public ActionResult carteleras()
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View("agregarCartelera");
+            }
+            else
+            {
+                CarteleraModelAndView model = new CarteleraModelAndView();
+                try
+                {
+                    ViewBag.errorCartelera = ""; //REVISAR ERRORES!
+                    model.listadoDeCarteleras = carteleraService.getListadoDeCarteleras();
+                    return View(model);
+                }
+                catch (Exception e)
+                {
+                    ViewBag.errorCartelera = e.Message;
+                    model.listadoDeCarteleras = new List<Carteleras>();
+                    return View(model);
+                }
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult agregarCartelera(CarteleraModelAndView model)
+        {
+            if (model.IdCartelera == 0)
+            {
+                return View(new CarteleraModelAndView());
+            }
+            else
+            {
+                try
+                {
+                    Carteleras carteleraModificable = carteleraService.obtenerCarteleraPorId(model.IdCartelera);
+                    model.idSedeCarteleraModel = carteleraModificable.IdSede.ToString();
+                    model.idPeliculaCarteleraModel = carteleraModificable.IdPelicula.ToString();
+                    model.horaInicioModel = carteleraModificable.HoraInicio.ToString();
+                    model.fechaInicioModel = carteleraModificable.FechaInicio.ToString();
+                    model.fechaFinModel = carteleraModificable.FechaFin.ToString();
+                    model.numeroSalaModel = carteleraModificable.NumeroSala.ToString();
+                    model.idVersionModel = carteleraModificable.IdVersion.ToString();
+                    model.lunesModel = carteleraModificable.Lunes.ToString();
+                    model.martesModel = carteleraModificable.Martes.ToString();
+                    model.miercolesModel = carteleraModificable.Miercoles.ToString();
+                    model.juevesModel = carteleraModificable.Jueves.ToString();
+                    model.viernesModel = carteleraModificable.Viernes.ToString();
+                    model.sabadoModel = carteleraModificable.Sabado.ToString();
+                    model.domingoModel = carteleraModificable.Domingo.ToString();
+                    model.fechaCargaModel = carteleraModificable.FechaCarga.ToString();
+                }
+                catch (Exception e)
+                {
+                    ViewBag.errorCartelera = ""; //REVISAR ERRORES!
+                    RedirectToAction("carteleras");
+                }
+                return View(model);
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult agregarCarteleraPost(CarteleraModelAndView model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View("AgregarCartelera", model); //
+            }
+            else
+            {
+
+                if (model.idCarteleraModel == null || model.idCarteleraModel == "0")
+                {
+                    Carteleras carteleraAAgregar = new Carteleras();
+
+                    carteleraAAgregar.IdCartelera = Convert.ToInt32(model.idCarteleraModel);
+                    carteleraAAgregar.IdSede = Convert.ToInt32(model.idSedeCarteleraModel);
+                    carteleraAAgregar.IdPelicula = Convert.ToInt32(model.idPeliculaCarteleraModel);
+                    carteleraAAgregar.HoraInicio = Convert.ToInt32(model.horaInicioModel);
+                    carteleraAAgregar.FechaInicio =DateTime.Now;//ver esto mariana
+                    carteleraAAgregar.FechaFin = DateTime.Now;
+                    carteleraAAgregar.NumeroSala = Convert.ToInt32(model.numeroSalaModel);
+                    carteleraAAgregar.IdVersion = Convert.ToInt32(model.idVersionModel);
+                    carteleraAAgregar.Lunes = Convert.ToBoolean(model.lunesModel);
+                    carteleraAAgregar.Martes = Convert.ToBoolean(model.martesModel);
+                    carteleraAAgregar.Miercoles = Convert.ToBoolean(model.miercolesModel);
+                    carteleraAAgregar.Jueves = Convert.ToBoolean(model.juevesModel);
+                    carteleraAAgregar.Viernes = Convert.ToBoolean(model.viernesModel);
+                    carteleraAAgregar.Sabado = Convert.ToBoolean(model.sabadoModel);
+                    carteleraAAgregar.Domingo = Convert.ToBoolean(model.domingoModel);
+                    carteleraAAgregar.FechaCarga = DateTime.Now;
+                    try
+                    {
+                        ViewBag.errorCartelera = "";
+                        carteleraService.crearCartelera(carteleraAAgregar);
+                    }
+                    catch (Exception e)
+                    {
+                        ViewBag.errorCartelera = "";
+                        return View("agregarCartelera", model);
+                    }
+
+                    return RedirectToAction("carteleras");
+                }
+                else
+                {
+                    try
+                    {
+                        ViewBag.errorCartelera = "";
+                        carteleraService.modificarCarteleraPorId(Convert.ToInt32(model.idCarteleraModel), model.idSedeCarteleraModel, model.idPeliculaCarteleraModel, model.horaInicioModel, model.fechaInicioModel, model.fechaFinModel, model.numeroSalaModel, model.idVersionModel, model.lunesModel, model.martesModel, model.miercolesModel, model.juevesModel, model.viernesModel, model.sabadoModel, model.domingoModel, model.fechaCargaModel);
+                    }
+                    catch (Exception e)
+                    {
+                        ViewBag.errorCartelera = e.Message;
+                        return View("agregarCartelera", model);
+                    }
+                    return RedirectToAction("carteleras");
+                }
+
+            }
+
+        }
+
+
+        /*
+        public ActionResult agregarCartelera()
+        {
+            CarteleraModelAndView model = new CarteleraModelAndView();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult agregarCartelera(CarteleraModelAndView model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            else
+            {
+                Carteleras carteleraAAgregar = new Carteleras();
+
+                carteleraAAgregar.IdCartelera = Convert.ToInt32(model.idCarteleraModel);
+                carteleraAAgregar.IdSede = Convert.ToInt32(model.idSedeCarteleraModel);
+                carteleraAAgregar.IdPelicula = Convert.ToInt32(model.idPeliculaCarteleraModel);
+                carteleraAAgregar.HoraInicio = Convert.ToInt32(model.horaInicioModel);
+                carteleraAAgregar.FechaInicio = Convert.ToDateTime(model.fechaInicioModel);
+                carteleraAAgregar.FechaFin = Convert.ToDateTime(model.fechaFinModel);
+                carteleraAAgregar.NumeroSala = Convert.ToInt32(model.numeroSalaModel);
+                carteleraAAgregar.IdVersion = Convert.ToInt32(model.idVersionModel);
+                carteleraAAgregar.Lunes = Convert.ToBoolean(model.lunesModel);
+                carteleraAAgregar.Martes = Convert.ToBoolean(model.martesModel);
+                carteleraAAgregar.Miercoles = Convert.ToBoolean(model.miercolesModel);
+                carteleraAAgregar.Jueves = Convert.ToBoolean(model.juevesModel);
+                carteleraAAgregar.Viernes = Convert.ToBoolean(model.viernesModel);
+                carteleraAAgregar.Sabado = Convert.ToBoolean(model.sabadoModel);
+                carteleraAAgregar.Domingo = Convert.ToBoolean(model.domingoModel);
+                carteleraAAgregar.FechaCarga = DateTime.Now;
+
+                carteleraService.grabarUnaCartelera(carteleraAAgregar);
+
+                return RedirectToAction("carteleras");
+            }
+        }
+        */
+
+        /*********************************************************************************************/
+
+
         //reservas
         public ActionResult reportes()
         {

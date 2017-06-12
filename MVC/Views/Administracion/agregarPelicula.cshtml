@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label for="" class="control-label">Calificación</label>
                 <div>
-                    <select name="idCalificacionPeliculaModel">
+                    <select name="idCalificacionPeliculaModel" class="form-control">
                         @foreach (var calificacion in Model.listadoDeCalificaciones)
                         {
                             <option value="@calificacion.IdCalificacion" name="idCalificacionPeliculaModel"> @calificacion.Nombre</option>
@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label for="" class="control-label">Género</label>
                 <div>
-                    <select name="idgeneroPeliculaModel">
+                    <select name="idgeneroPeliculaModel" class="form-control">
                         @foreach (var genero in Model.listadoDeGeneros)
                         {
                             <option value="@genero.IdGenero" name="idgeneroPeliculaModel"> @genero.Nombre</option>

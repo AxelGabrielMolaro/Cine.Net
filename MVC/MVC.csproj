@@ -184,10 +184,12 @@
     <Compile Include="Controllers\PeliculasController.cs" />
     <Compile Include="Controllers\PracticaController.cs" />
     <Compile Include="DaoImpl\CalificacionDaoImpls.cs" />
+    <Compile Include="DaoImpl\CarteleraDaoImpl.cs" />
     <Compile Include="DaoImpl\GeneroDaoImpl.cs" />
     <Compile Include="DaoImpl\PeliculaDaoImpl.cs" />
     <Compile Include="DaoImpl\SedeDaoImpl.cs" />
     <Compile Include="DaoImpl\UsuarioDaoImpl.cs" />
+    <Compile Include="DaoImpl\VersionDaoImpl.cs" />
     <Compile Include="Entity\Calificaciones.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
@@ -197,6 +199,9 @@
     <Compile Include="Entity\Generos.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\MSreplication_options.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Peliculas.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
@@ -204,6 +209,18 @@
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Sedes.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\spt_fallback_db.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\spt_fallback_dev.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\spt_fallback_usg.cs">
+      <DependentUpon>TPBDDCINE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\spt_monitor.cs">
       <DependentUpon>TPBDDCINE.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\TiposDocumentos.cs">
@@ -234,17 +251,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Manager\RepositorioManager.cs" />
+    <Compile Include="Models\CarteleraModelAndView.cs" />
     <Compile Include="Models\ModelAndViewReservaFinal.cs" />
     <Compile Include="Models\ModelAndViewReserva.cs" />
     <Compile Include="Models\PeliculaModelAndView.cs" />
     <Compile Include="Models\SedeModelAndView.cs" />
     <Compile Include="Models\UsuarioModelAndView.cs" />
+    <Compile Include="Models\VersionModelAndView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesImpl\CalificacionServiceImpl.cs" />
+    <Compile Include="ServicesImpl\CarteleraServiceImpl.cs" />
     <Compile Include="ServicesImpl\GeneroServiceImpl.cs" />
     <Compile Include="ServicesImpl\PeliculaServiceImpl.cs" />
     <Compile Include="ServicesImpl\SedeServiceImpl.cs" />
     <Compile Include="ServicesImpl\UsuarioServiceImpl.cs" />
+    <Compile Include="ServicesImpl\VersionServiceImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -283,6 +304,8 @@
     <Content Include="Views\Administracion\modificarPelicula.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\prueba\pruebaAgregar.cshtml" />
+    <Content Include="Views\Administracion\carteleras.cshtml" />
+    <Content Include="Views\Administracion\agregarCartelera.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
